@@ -14,10 +14,13 @@ class Player: SKSpriteNode {
     var jumpAction:SKAction?
     var runAction:SKAction?
     var glideAction:SKAction?
+    var fireAction:SKAction?
+    
     var isJumping:Bool = false
     var isGliding:Bool = false
     var isRunning:Bool = true
     var isAttacking:Bool = false
+    var isShooting:Bool = false;
     var jumpAmount:CGFloat = 0
     var maxJump:CGFloat = 50
     var minSpeed:CGFloat = 12
@@ -33,7 +36,7 @@ class Player: SKSpriteNode {
         let imageTexture = SKTexture(imageNamed: imageNamed)
         super.init(texture: imageTexture, color:SKColor.clearColor(), size: imageTexture.size() )
         
-        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 2.25, center:CGPointMake(0, 0))
+        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 1.5, center:CGPointMake(0, 0))
         body.dynamic = true
         body.affectedByGravity = true
         body.allowsRotation = false
@@ -47,6 +50,7 @@ class Player: SKSpriteNode {
         setUpRun()
         setUpJump()
         setUpGlide()
+        setUpFire();
         
         // Start by running
         startRun()
@@ -64,32 +68,57 @@ class Player: SKSpriteNode {
     
     func setUpRun() {
         
-        let atlas = SKTextureAtlas (named: "Ogre")
+        let atlas = SKTextureAtlas (named: "Player")
         var atlasTextures:[SKTexture] = []
         
-        for i in 0 ..< 20{
-            let texture:SKTexture = atlas.textureNamed( String(format: "ogre_run%i", i+1))
+        for i in 0 ..< 9{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro3_walk000%i", i+1))
             atlasTextures.insert(texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/60, resize: true , restore:false )
+        for i in 9 ..< 14{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro3_walk00%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true , restore:false )
         runAction =  SKAction.repeatActionForever(atlasAnimation)
 
+    }
+    
+    func setUpFire() {
+        
+        let atlas = SKTextureAtlas (named: "Player")
+        var atlasTextures:[SKTexture] = []
+        
+        for i in 0 ..< 9{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro3_walk_and_fire000%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        for i in 9 ..< 14{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro3_walk_and_fire00%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true , restore:false )
+        fireAction =  SKAction.repeatAction(atlasAnimation, count:1)
+        
     }
     
 
     func setUpJump() {
         
-        let atlas = SKTextureAtlas (named: "Ogre")
+        let atlas = SKTextureAtlas (named: "Player")
         //create an array with SKTexture as the type (textures being the .png images)
         var atlasTextures:[SKTexture] = []
         
-        for i in 0 ..< 9 {
-            let texture:SKTexture = atlas.textureNamed( String(format: "ogre_jump%i", i+1))
+        for i in 0 ..< 5 {
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro3_jump000%i", i+1))
             atlasTextures.insert(texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/20, resize: true , restore:false )
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/10, resize: true , restore:false )
         jumpAction =  SKAction.repeatActionForever(atlasAnimation)
         
     }
@@ -113,13 +142,58 @@ class Player: SKSpriteNode {
     
     func startRun(){
         
+        print("start run")
+        
         isGliding = false
         isRunning = true
         isJumping = false
+        isShooting = false;
         
         self.removeActionForKey("jumpKey")
         self.removeActionForKey("glideKey")
+        self.removeActionForKey("shootKey")
         self.runAction(runAction! , withKey:"runKey")
+        
+    }
+    
+    func startShoot(){
+        
+        isGliding = false;
+        isRunning = false;
+        isJumping = false;
+        isShooting = true;
+        
+        self.removeActionForKey("runKey")
+        self.runAction(fireAction!, withKey:"shootKey")
+    
+    }
+    
+    func stopShoot(){
+        
+        print("ended shoot")
+        isShooting = false;
+        startRun();
+        
+        
+
+    }
+    
+    func shoot(){
+        
+        if(isShooting == false && isJumping == false && isRunning == true){
+            
+            print("start SHOOT!")
+            
+            startShoot();
+            let wait:SKAction = SKAction.waitForDuration(0.3);
+            let stop:SKAction = SKAction.runBlock(stopShoot);
+            let seq:SKAction = SKAction.sequence([wait, stop])
+            self.runAction(seq);
+            
+        
+        }
+      
+        
         
     }
     
@@ -130,8 +204,10 @@ class Player: SKSpriteNode {
         
         isGliding = false
         isRunning = false
+        isShooting = false;
         isJumping = true
         
+
     }
     
     // TODO: seems to be slowing down speed when jumping
@@ -234,6 +310,8 @@ class Player: SKSpriteNode {
         startRun()
         
     }
+    
+   
     
     
 }

@@ -32,6 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let swipeRightRec = UISwipeGestureRecognizer()
     let swipeUpRec = UISwipeGestureRecognizer()
     let swipeDownRec = UISwipeGestureRecognizer()
+    let tapRec = UITapGestureRecognizer();
+    
     let worldNode:SKNode = SKNode()
     let thePlayer:Player = Player(imageNamed: "ogre_run1")
     let loopingBG:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
@@ -91,6 +93,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpSwipeHandlers(){
         
+        tapRec.addTarget(self, action:#selector(GameScene.tap))
+        self.view!.addGestureRecognizer(tapRec);
+        
         swipeRightRec.addTarget(self, action:#selector(GameScene.swipedRight))
         swipeRightRec.direction = .Right
         self.view!.addGestureRecognizer(swipeRightRec)
@@ -119,6 +124,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         loopingBG2.runAction(`repeat`)
         
     }
+    
+    func tap(){ thePlayer.shoot() }
 
     func swipedRight(){ thePlayer.glide() }
     
@@ -216,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // convert to this camera
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: worldNode)
-        worldNode.position = CGPoint(x: worldNode.position.x - cameraPositionInScene.x , y:0 )
+        worldNode.position = CGPoint(x: worldNode.position.x - cameraPositionInScene.x - 100, y:0 )
         
     }
     
@@ -303,14 +310,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // if the player hits the ground....
         if (contact.bodyA.categoryBitMask == BodyType.ground.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
             thePlayer.physicsBody?.dynamic = true
-            if ( thePlayer.isRunning == false) {
+            if ( thePlayer.isRunning == false && thePlayer.isShooting == false) {
                 thePlayer.startRun()
             }
             
         } else if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.ground.rawValue ) {
 
             thePlayer.physicsBody?.dynamic = true
-            if ( thePlayer.isRunning == false) {
+            if ( thePlayer.isRunning == false && thePlayer.isShooting == false)  {
                 thePlayer.startRun()
             }
         }
@@ -340,7 +347,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             thePlayer.physicsBody?.dynamic = true
             
-            if ( thePlayer.isRunning == false) {
+            if ( thePlayer.isRunning == false && thePlayer.isShooting == false) {
                 thePlayer.startRun()
             }
             
@@ -352,7 +359,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             thePlayer.physicsBody?.dynamic = true
             
-            if ( thePlayer.isRunning == false) {
+            if ( thePlayer.isRunning == false && thePlayer.isShooting == false) {
                 thePlayer.startRun()
             }
             

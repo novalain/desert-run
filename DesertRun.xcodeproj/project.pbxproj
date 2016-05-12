@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E7DC6CC1CE4E18400321548 /* Player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E7DC6CB1CE4E18400321548 /* Player.atlas */; };
 		DA0688331B347C1300A99513 /* Ogre.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA0688321B347C1300A99513 /* Ogre.atlas */; };
 		DA364DDD1B16212B0027E334 /* LevelUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA364DDC1B16212B0027E334 /* LevelUnit.swift */; };
 		DAE21F901B0D27780066F756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F8F1B0D27780066F756 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E7DC6CB1CE4E18400321548 /* Player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Player.atlas; sourceTree = "<group>"; };
 		DA0688321B347C1300A99513 /* Ogre.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ogre.atlas; sourceTree = "<group>"; };
 		DA364DDC1B16212B0027E334 /* LevelUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUnit.swift; sourceTree = "<group>"; };
 		DAE21F8A1B0D27780066F756 /* DesertRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesertRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 				DAE21F971B0D27780066F756 /* Main.storyboard */,
 				DA0688321B347C1300A99513 /* Ogre.atlas */,
 				DAE21F9A1B0D27780066F756 /* Images.xcassets */,
+				1E7DC6CB1CE4E18400321548 /* Player.atlas */,
 				DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */,
 				DAE21F8D1B0D27780066F756 /* Supporting Files */,
 			);
@@ -211,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E7DC6CC1CE4E18400321548 /* Player.atlas in Resources */,
 				DA0688331B347C1300A99513 /* Ogre.atlas in Resources */,
 				DAE21F9E1B0D27780066F756 /* LaunchScreen.xib in Resources */,
 				DAE21F9B1B0D27780066F756 /* Images.xcassets in Resources */,
