@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA0688331B347C1300A99513 /* Ogre.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA0688321B347C1300A99513 /* Ogre.atlas */; };
+		DA364DDD1B16212B0027E334 /* LevelUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA364DDC1B16212B0027E334 /* LevelUnit.swift */; };
+		DA930CE11B2B6F2800E22493 /* Girl.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA930CE01B2B6F2800E22493 /* Girl.atlas */; };
+		DAE21F901B0D27780066F756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F8F1B0D27780066F756 /* AppDelegate.swift */; };
+		DAE21F921B0D27780066F756 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F911B0D27780066F756 /* GameScene.sks */; };
+		DAE21F941B0D27780066F756 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F931B0D27780066F756 /* GameScene.swift */; };
+		DAE21F961B0D27780066F756 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F951B0D27780066F756 /* GameViewController.swift */; };
+		DAE21F991B0D27780066F756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F971B0D27780066F756 /* Main.storyboard */; };
+		DAE21F9B1B0D27780066F756 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F9A1B0D27780066F756 /* Images.xcassets */; };
+		DAE21F9E1B0D27780066F756 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */; };
+		DAE21FAA1B0D27780066F756 /* DesertRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21FA91B0D27780066F756 /* DesertRunTests.swift */; };
+		DAE21FB41B0D27C00066F756 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21FB31B0D27C00066F756 /* Player.swift */; };
+		DAE21FB61B0D27CE0066F756 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21FB51B0D27CE0066F756 /* Object.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAE21FA41B0D27780066F756 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAE21F821B0D27780066F756 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAE21F891B0D27780066F756;
+			remoteInfo = EndlessWorlds;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA0688321B347C1300A99513 /* Ogre.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ogre.atlas; sourceTree = "<group>"; };
+		DA364DDC1B16212B0027E334 /* LevelUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUnit.swift; sourceTree = "<group>"; };
+		DA930CE01B2B6F2800E22493 /* Girl.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Girl.atlas; sourceTree = "<group>"; };
+		DAE21F8A1B0D27780066F756 /* DesertRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesertRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAE21F8E1B0D27780066F756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE21F8F1B0D27780066F756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DAE21F911B0D27780066F756 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		DAE21F931B0D27780066F756 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		DAE21F951B0D27780066F756 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DAE21F981B0D27780066F756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAE21F9A1B0D27780066F756 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DAE21F9D1B0D27780066F756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DAE21FA31B0D27780066F756 /* DesertRun.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesertRun.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAE21FA81B0D27780066F756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE21FA91B0D27780066F756 /* DesertRunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertRunTests.swift; sourceTree = "<group>"; };
+		DAE21FB31B0D27C00066F756 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DAE21FB51B0D27CE0066F756 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAE21F871B0D27780066F756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAE21FA01B0D27780066F756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAE21F811B0D27780066F756 = {
+			isa = PBXGroup;
+			children = (
+				DAE21F8C1B0D27780066F756 /* DesertRun */,
+				DAE21FA61B0D27780066F756 /* DesertRunTests */,
+				DAE21F8B1B0D27780066F756 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAE21F8B1B0D27780066F756 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAE21F8A1B0D27780066F756 /* DesertRun.app */,
+				DAE21FA31B0D27780066F756 /* DesertRun.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAE21F8C1B0D27780066F756 /* DesertRun */ = {
+			isa = PBXGroup;
+			children = (
+				DAE21F8F1B0D27780066F756 /* AppDelegate.swift */,
+				DAE21F911B0D27780066F756 /* GameScene.sks */,
+				DAE21F931B0D27780066F756 /* GameScene.swift */,
+				DAE21FB31B0D27C00066F756 /* Player.swift */,
+				DA364DDC1B16212B0027E334 /* LevelUnit.swift */,
+				DAE21FB51B0D27CE0066F756 /* Object.swift */,
+				DAE21F951B0D27780066F756 /* GameViewController.swift */,
+				DAE21F971B0D27780066F756 /* Main.storyboard */,
+				DA0688321B347C1300A99513 /* Ogre.atlas */,
+				DA930CE01B2B6F2800E22493 /* Girl.atlas */,
+				DAE21F9A1B0D27780066F756 /* Images.xcassets */,
+				DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */,
+				DAE21F8D1B0D27780066F756 /* Supporting Files */,
+			);
+			path = DesertRun;
+			sourceTree = "<group>";
+		};
+		DAE21F8D1B0D27780066F756 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAE21F8E1B0D27780066F756 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAE21FA61B0D27780066F756 /* DesertRunTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAE21FA91B0D27780066F756 /* DesertRunTests.swift */,
+				DAE21FA71B0D27780066F756 /* Supporting Files */,
+			);
+			path = DesertRunTests;
+			sourceTree = "<group>";
+		};
+		DAE21FA71B0D27780066F756 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAE21FA81B0D27780066F756 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAE21F891B0D27780066F756 /* DesertRun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAE21FAD1B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRun" */;
+			buildPhases = (
+				DAE21F861B0D27780066F756 /* Sources */,
+				DAE21F871B0D27780066F756 /* Frameworks */,
+				DAE21F881B0D27780066F756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DesertRun;
+			productName = EndlessWorlds;
+			productReference = DAE21F8A1B0D27780066F756 /* DesertRun.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAE21FA21B0D27780066F756 /* DesertRunTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAE21FB01B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRunTests" */;
+			buildPhases = (
+				DAE21F9F1B0D27780066F756 /* Sources */,
+				DAE21FA01B0D27780066F756 /* Frameworks */,
+				DAE21FA11B0D27780066F756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAE21FA51B0D27780066F756 /* PBXTargetDependency */,
+			);
+			name = DesertRunTests;
+			productName = EndlessWorldsTests;
+			productReference = DAE21FA31B0D27780066F756 /* DesertRun.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAE21F821B0D27780066F756 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = CartoonSmart;
+				TargetAttributes = {
+					DAE21F891B0D27780066F756 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					DAE21FA21B0D27780066F756 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = DAE21F891B0D27780066F756;
+					};
+				};
+			};
+			buildConfigurationList = DAE21F851B0D27780066F756 /* Build configuration list for PBXProject "DesertRun" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAE21F811B0D27780066F756;
+			productRefGroup = DAE21F8B1B0D27780066F756 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAE21F891B0D27780066F756 /* DesertRun */,
+				DAE21FA21B0D27780066F756 /* DesertRunTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAE21F881B0D27780066F756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0688331B347C1300A99513 /* Ogre.atlas in Resources */,
+				DA930CE11B2B6F2800E22493 /* Girl.atlas in Resources */,
+				DAE21F9E1B0D27780066F756 /* LaunchScreen.xib in Resources */,
+				DAE21F9B1B0D27780066F756 /* Images.xcassets in Resources */,
+				DAE21F921B0D27780066F756 /* GameScene.sks in Resources */,
+				DAE21F991B0D27780066F756 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAE21FA11B0D27780066F756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAE21F861B0D27780066F756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA364DDD1B16212B0027E334 /* LevelUnit.swift in Sources */,
+				DAE21FB61B0D27CE0066F756 /* Object.swift in Sources */,
+				DAE21FB41B0D27C00066F756 /* Player.swift in Sources */,
+				DAE21F941B0D27780066F756 /* GameScene.swift in Sources */,
+				DAE21F961B0D27780066F756 /* GameViewController.swift in Sources */,
+				DAE21F901B0D27780066F756 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAE21F9F1B0D27780066F756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAE21FAA1B0D27780066F756 /* DesertRunTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAE21FA51B0D27780066F756 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAE21F891B0D27780066F756 /* DesertRun */;
+			targetProxy = DAE21FA41B0D27780066F756 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAE21F971B0D27780066F756 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAE21F981B0D27780066F756 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAE21F9D1B0D27780066F756 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAE21FAB1B0D27780066F756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAE21FAC1B0D27780066F756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAE21FAE1B0D27780066F756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/DesertRun/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = DesertRun;
+			};
+			name = Debug;
+		};
+		DAE21FAF1B0D27780066F756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/DesertRun/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = DesertRun;
+			};
+			name = Release;
+		};
+		DAE21FB11B0D27780066F756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EndlessWorldsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = DesertRun;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesertRun.app/DesertRun";
+			};
+			name = Debug;
+		};
+		DAE21FB21B0D27780066F756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EndlessWorldsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = DesertRun;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesertRun.app/DesertRun";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAE21F851B0D27780066F756 /* Build configuration list for PBXProject "DesertRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAE21FAB1B0D27780066F756 /* Debug */,
+				DAE21FAC1B0D27780066F756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAE21FAD1B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAE21FAE1B0D27780066F756 /* Debug */,
+				DAE21FAF1B0D27780066F756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAE21FB01B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRunTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAE21FB11B0D27780066F756 /* Debug */,
+				DAE21FB21B0D27780066F756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAE21F821B0D27780066F756 /* Project object */;
+}
