@@ -9,27 +9,18 @@
 import Foundation
 import SpriteKit
 
-
-
 class Player: SKSpriteNode {
     
-   
     var jumpAction:SKAction?
     var runAction:SKAction?
     var glideAction:SKAction?
-
-    
     var isJumping:Bool = false
     var isGliding:Bool = false
     var isRunning:Bool = true
     var isAttacking:Bool = false
-    
-    
     var jumpAmount:CGFloat = 0
-    var maxJump:CGFloat = 20
-    
-    var minSpeed:CGFloat = 6
-    
+    var maxJump:CGFloat = 50
+    var minSpeed:CGFloat = 12
     var glideTime:NSTimeInterval = 2
     var slideTime:NSTimeInterval = 0.5
     
@@ -50,160 +41,75 @@ class Player: SKSpriteNode {
         body.categoryBitMask = BodyType.player.rawValue
         body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.wheelObject.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
         body.collisionBitMask = BodyType.platformObject.rawValue | BodyType.ground.rawValue
-        body.friction = 0.9 //0 is like glass, 1 is like sandpaper to walk on
         self.physicsBody = body
         
-        
+        // Set up actions for animations
         setUpRun()
         setUpJump()
         setUpGlide()
         
+        // Start by running
         startRun()
-        
-        
+    
     }
     
     func update() {
         
         if (isGliding == true) {
-            
             self.position = CGPointMake(self.position.x + minSpeed, self.position.y - 0.4)
-            
         } else {
-            
-            
             self.position = CGPointMake(self.position.x + minSpeed, self.position.y + jumpAmount)
-            
         }
-        
-        
-        
-        
-        
     }
     
     func setUpRun() {
         
         let atlas = SKTextureAtlas (named: "Ogre")
-        
-        var array = [String]()
-        
-        //or setup an array with exactly the sequential frames start from 1
-        
-        
-        //was
-        //  for var i=1; i <= 20; i++ {
-        
-        for i in 1 ... 20 {
-        
-       
-            
-            let nameString = String(format: "ogre_run%i", i)
-            array.append(nameString)
-            
-        }
-        
-        //create another array this time with SKTexture as the type (textures being the .png images)
         var atlasTextures:[SKTexture] = []
         
-        
-        //was
-        //for (var i = 0; i < array.count; i++ ) {
-        
-        for i in 0 ..< array.count{
-            
-            let texture:SKTexture = atlas.textureNamed( array[i] )
+        for i in 0 ..< 20{
+            let texture:SKTexture = atlas.textureNamed( String(format: "ogre_run%i", i+1))
             atlasTextures.insert(texture, atIndex:i)
-            
         }
         
         let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/60, resize: true , restore:false )
         runAction =  SKAction.repeatActionForever(atlasAnimation)
-        
-        
-        
+
     }
     
-    
+
     func setUpJump() {
         
         let atlas = SKTextureAtlas (named: "Ogre")
-        
-        var array = [String]()
-        
-        //or setup an array with exactly the sequential frames start from 1
-        
-        //was
-        //  for var i=1; i <= 9; i++ {
-        
-        for i in 1 ... 9 {
-      
-            let nameString = String(format: "ogre_jump%i", i)
-            array.append(nameString)
-            
-        }
-        
-        //create another array this time with SKTexture as the type (textures being the .png images)
+        //create an array with SKTexture as the type (textures being the .png images)
         var atlasTextures:[SKTexture] = []
         
-        //was...
-        //for (var i = 0; i < array.count; i++ ) {
-        
-        for i in 0 ..< array.count {
-            
-            let texture:SKTexture = atlas.textureNamed( array[i] )
+        for i in 0 ..< 9 {
+            let texture:SKTexture = atlas.textureNamed( String(format: "ogre_jump%i", i+1))
             atlasTextures.insert(texture, atIndex:i)
-            
         }
         
         let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/20, resize: true , restore:false )
         jumpAction =  SKAction.repeatActionForever(atlasAnimation)
-        
-        
         
     }
     
     func setUpGlide() {
         
         let atlas = SKTextureAtlas (named: "Ogre")
-        
-        var array = [String]()
-        
-        //or setup an array with exactly the sequential frames start from 1
-        //was
-        //  for var i=1; i <= 12; i++ {
-        
-        for i in 1 ... 12 {
-            
-            let nameString = String(format: "ogre_slide%i", i)
-            array.append(nameString)
-            
-        }
-        
+    
         //create another array this time with SKTexture as the type (textures being the .png images)
         var atlasTextures:[SKTexture] = []
         
-        //was...
-        //for (var i = 0; i < array.count; i++ ) {
-        
-        for i in 0 ..< array.count {
-            
-            let texture:SKTexture = atlas.textureNamed( array[i] )
+        for i in 0 ..< 12 {
+            let texture:SKTexture = atlas.textureNamed( String(format: "ogre_slide%i", i+1))
             atlasTextures.insert(texture, atIndex:i)
-            
         }
         
         let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/20, resize: true , restore:false )
         glideAction =  SKAction.repeatActionForever(atlasAnimation)
         
-        
-        
     }
-    
-    
-    
-    
-    
     
     func startRun(){
         
@@ -216,6 +122,7 @@ class Player: SKSpriteNode {
         self.runAction(runAction! , withKey:"runKey")
         
     }
+    
     func startJump(){
         
         self.removeActionForKey("runKey")
@@ -225,16 +132,15 @@ class Player: SKSpriteNode {
         isRunning = false
         isJumping = true
         
-        
     }
     
+    // TODO: seems to be slowing down speed when jumping
     func jump() {
         
         if ( isJumping == false && isGliding == false) {
             
-                startJump()
-            
-                jumpAmount = maxJump
+            startJump()
+            jumpAmount = maxJump
             
             let callAgain:SKAction = SKAction.runBlock(taperJump)
             let wait:SKAction = SKAction.waitForDuration(1/60)
@@ -244,21 +150,16 @@ class Player: SKSpriteNode {
             let seq2:SKAction = SKAction.sequence([`repeat`, stop])
             
             self.runAction(seq2)
-            
-            
-            
+
         }
         
     }
     
-    
     func taperJump() {
-        
         
         jumpAmount = jumpAmount * 0.9
         
     }
-    
     
     func stopJump() {
         
@@ -271,12 +172,8 @@ class Player: SKSpriteNode {
             
         }
         
-        
     }
-    
-    
-    
-    
+
     func startGlide(){
         
         isJumping = false
@@ -292,25 +189,16 @@ class Player: SKSpriteNode {
     
     func glide() {
         
-        
         if (isGliding == false && isJumping == true) {
-            
             startGlide()
-            
             self.physicsBody?.dynamic = false
-            
             let wait:SKAction = SKAction.waitForDuration(glideTime)
             let block:SKAction = SKAction.runBlock(stopGlide)
             let seq:SKAction = SKAction.sequence([wait, block])
-            
             self.runAction(seq)
-        
-            
         } else {
-            
             slide()
         }
-        
         
     }
     
@@ -318,7 +206,6 @@ class Player: SKSpriteNode {
     func stopGlide() {
         
         self.physicsBody?.dynamic = true
-        
         self.startRun()
         
     }
@@ -326,31 +213,24 @@ class Player: SKSpriteNode {
     
     func slide() {
         
-        
         if (isRunning == true && isAttacking == false) {
             
             startGlide()
-            
             isAttacking = true
-            
             let wait:SKAction = SKAction.waitForDuration( slideTime)
             let block:SKAction = SKAction.runBlock(stopSlide)
             let seq:SKAction = SKAction.sequence([wait, block])
             
             self.runAction(seq)
-            
-            
+        
         }
         
     }
     
     
     func stopSlide() {
-        
-        
-        
+    
         isAttacking = false
-        
         startRun()
         
     }

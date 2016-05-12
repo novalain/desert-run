@@ -14,74 +14,48 @@ class Object: SKNode {
     var objectSprite:SKSpriteNode = SKSpriteNode()
     var imageName:String = ""
    
-    var theType:LevelType = LevelType.ground
-    
-    var levelUnitWidth:CGFloat = 0
-    var levelUnitHeight:CGFloat = 0
-    
+    var type:LevelType!;
+    var spreadWidth:CGFloat = 0
+    var spreadHeight:CGFloat = 0
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    override init () {
-        
+    init (type:LevelType, spreadWidth:CGFloat, spreadHeight:CGFloat) {
         super.init()
-        
-        
+        self.type = type
+        self.spreadWidth = spreadWidth
+        self.spreadHeight = spreadHeight
+        createObject();
     }
     
     func createObject() {
         
-        
-        if (theType == LevelType.water) {
-            
-            
+        if (type == LevelType.water) {
             imageName = "Platform"
-            
         } else {
             
-            let diceRoll = arc4random_uniform(7)
+            let rand = arc4random_uniform(7)
             
-            if ( diceRoll == 0) {
-                
+            if ( rand == 0) {
                 imageName = "Platform"
-                
-            } else if ( diceRoll == 1) {
-                
+            } else if ( rand == 1) {
                 imageName = "Wheel"
-                
-            } else if ( diceRoll == 2) {
-                
+            } else if ( rand == 2) {
                 imageName = "Barrel"
-                
-            } else if ( diceRoll == 3) {
-                
+            } else if ( rand == 3) {
                 imageName = "Cactus"
-                
-            } else if ( diceRoll == 4) {
-                
+            } else if ( rand == 4) {
                 imageName = "Rock"
-                
-            } else if ( diceRoll == 5) {
-                
+            } else if ( rand == 5) {
                 imageName = "Money"
-                
-            } else if ( diceRoll == 6) {
-                
+            } else if ( rand == 6) {
                 // increase liklihood of another platform
                 imageName = "Platform"
-                
             }
-
-            
-            
         }
         
-        
-
-
         objectSprite = SKSpriteNode(imageNamed:imageName)
         
         self.addChild(objectSprite)
@@ -99,32 +73,19 @@ class Object: SKNode {
             objectSprite.physicsBody!.restitution = 0.0
             objectSprite.physicsBody!.allowsRotation = false
             
-            if ( theType == LevelType.water) {
-                
+            if ( type == LevelType.water) {
                 self.position = CGPointMake(0, -110)
-                
             } else {
-                
-                let diceRoll = arc4random_uniform(2)
-                
-                if ( diceRoll == 0) {
-                    
+                let rand = arc4random_uniform(2)
+                if ( rand == 0) {
                     self.position = CGPointMake(0, -110)
-                    
-                } else if ( diceRoll == 1) {
-                    
+                } else if ( rand == 1) {
                     self.position = CGPointMake(0, -50)
-                    
                 }
-                
             }
             
-            
-            let width:UInt32 = UInt32(levelUnitWidth)
-            
-            let diceRollX = arc4random_uniform(width)
-            
-            self.position = CGPointMake( CGFloat(diceRollX) - (levelUnitWidth / 2),  self.position.y)
+            let randX = arc4random_uniform(UInt32(spreadWidth))
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 2),  self.position.y)
             
             
         } else if ( imageName == "Wheel") {
@@ -138,13 +99,8 @@ class Object: SKNode {
             objectSprite.physicsBody!.restitution = 0.5
             objectSprite.physicsBody!.allowsRotation = true
             
-            let width:UInt32 = UInt32(levelUnitWidth / 3)
-            
-            let diceRollX = arc4random_uniform(width)
-            
-            self.position = CGPointMake( CGFloat(diceRollX) + (levelUnitWidth / 3),  400)
-            
-            
+            let randX = arc4random_uniform(UInt32(spreadWidth))
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  self.position.y)
             
         } else if ( imageName == "Money") {
             
@@ -157,17 +113,10 @@ class Object: SKNode {
             objectSprite.physicsBody!.restitution = 0.0
             objectSprite.physicsBody!.allowsRotation = true
             
-            let width:UInt32 = UInt32(levelUnitWidth / 3)
-            
-            let diceRollX = arc4random_uniform(width)
-            
-            self.position = CGPointMake( CGFloat(diceRollX) + (levelUnitWidth / 3),  400)
-            
-            
-            
+            let randX = arc4random_uniform(UInt32(spreadWidth))
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  self.position.y)
             
         } else {
-            
             
             objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 1.8)
             objectSprite.physicsBody!.categoryBitMask = BodyType.deathObject.rawValue
@@ -179,28 +128,16 @@ class Object: SKNode {
             objectSprite.physicsBody!.restitution = 0.0
             objectSprite.physicsBody!.allowsRotation = false
             
-            
-            let width:UInt32 = UInt32(levelUnitWidth)
-            
-            let diceRollX = arc4random_uniform(width)
-            
-            self.position = CGPointMake( CGFloat(diceRollX) - (levelUnitWidth / 2),  500)
-            
+            let randX = arc4random_uniform(UInt32(spreadWidth))
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 2),  self.position.y)
             
         }
 
-        
-    
         self.zPosition = 102
         self.name = "obstacle"
-
         
     }
-    
-    
-   
-    
-    
+
     
 }
 
