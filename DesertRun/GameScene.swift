@@ -8,7 +8,6 @@
 
 import SpriteKit
 
-
 enum BodyType:UInt32 {
     
     case player = 1
@@ -18,6 +17,7 @@ enum BodyType:UInt32 {
     case ground = 16
     case water = 32
     case moneyObject = 64
+    case bullet = 128
     
 }
 
@@ -35,7 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let tapRec = UITapGestureRecognizer();
     
     let worldNode:SKNode = SKNode()
-    let thePlayer:Player = Player(imageNamed: "ogre_run1")
+    let thePlayer:Player = Player(imageNamed: "bro_walk0001") // fix
+    var playerBullet = Bullet(pos: CGPointMake(5000, 5000)); // ugly, not spawn on screen until shot
+
     let loopingBG:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
     let loopingBG2:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
     
@@ -64,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelUnitHeight = screenHeight
         
         physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx:-1, dy:-9.8)
+        physicsWorld.gravity = CGVector(dx:-0.5, dy:-9.8)
         
         // Move origin to center
         self.anchorPoint = CGPointMake(0.5, 0.5)
@@ -76,6 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         thePlayer.zPosition = 101
         
         populateLevelUnits()
+        worldNode.addChild(playerBullet);
         
         addChild(loopingBG)
         addChild(loopingBG2)
@@ -113,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func startLoopingBackground(){
         
-       resetLoopingBackground()
+        resetLoopingBackground()
         
         let move:SKAction = SKAction.moveByX(-loopingBG2.size.width, y: 0, duration: 20)
         let moveBack:SKAction = SKAction.moveByX(loopingBG2.size.width, y: 0, duration: 0)
@@ -125,7 +128,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func tap(){ thePlayer.shoot() }
+    func tap(){
+        
+        //if(playerBullet == nil){
+            
+        playerBullet.position.x = thePlayer.position.x + 50;
+        playerBullet.position.y = thePlayer.position.y;
+        thePlayer.shoot();
+        
+        //}
+        
+    }
 
     func swipedRight(){ thePlayer.glide() }
     
@@ -214,6 +227,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             thePlayer.update()
         }
         
+        //if(playerBullet != nil){
+        
+            /*if(!intersectsNode(playerBullet)){
+                
+                
+                print("Destroy");
+                playerBullet.removeFromParent();
+                playerBullet = nil;
+            
+            } else {*/
+            playerBullet.update();
+            //}
+            
+        //}
+        
         self.centerOnNode(thePlayer)
         
     }
@@ -223,13 +251,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // convert to this camera
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: worldNode)
-        worldNode.position = CGPoint(x: worldNode.position.x - cameraPositionInScene.x - 100, y:0 )
+        worldNode.position = CGPoint(x: worldNode.position.x - cameraPositionInScene.x - 180 , y:0 )
         
     }
     
     // Handle all the collision
     func didBeginContact(contact: SKPhysicsContact) {
-    
+        
+        
         /// deathObject and player
         if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
             
@@ -395,12 +424,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             thePlayer.physicsBody!.dynamic = false
             
+            // fade out plaeyer
+            
             let fadeOut:SKAction = SKAction.fadeAlphaTo(0, duration: 0.2)
             let move:SKAction = SKAction.moveTo(playerStartingPos, duration: 0.0)
             let block:SKAction = SKAction.runBlock(revivePlayer)
             let seq:SKAction = SKAction.sequence([fadeOut, move, block])
             
             thePlayer.runAction(seq)
+            
+            // fade out BG
             
             let fadeOutBG:SKAction = SKAction.fadeAlphaTo(0, duration: 0.2)
             let blockBG:SKAction = SKAction.runBlock(resetLoopingBackground)

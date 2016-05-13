@@ -22,8 +22,8 @@ class Player: SKSpriteNode {
     var isAttacking:Bool = false
     var isShooting:Bool = false;
     var jumpAmount:CGFloat = 0
-    var maxJump:CGFloat = 50
-    var minSpeed:CGFloat = 12
+    var maxJump:CGFloat = 100
+    var minSpeed:CGFloat = 10
     var glideTime:NSTimeInterval = 2
     var slideTime:NSTimeInterval = 0.5
     
@@ -36,7 +36,7 @@ class Player: SKSpriteNode {
         let imageTexture = SKTexture(imageNamed: imageNamed)
         super.init(texture: imageTexture, color:SKColor.clearColor(), size: imageTexture.size() )
         
-        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 1.5, center:CGPointMake(0, 0))
+        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 2, center:CGPointMake(0, 0))
         body.dynamic = true
         body.affectedByGravity = true
         body.allowsRotation = false
@@ -64,6 +64,7 @@ class Player: SKSpriteNode {
         } else {
             self.position = CGPointMake(self.position.x + minSpeed, self.position.y + jumpAmount)
         }
+        
     }
     
     func setUpRun() {
@@ -162,7 +163,7 @@ class Player: SKSpriteNode {
         isRunning = false;
         isJumping = false;
         isShooting = true;
-        
+    
         self.removeActionForKey("runKey")
         self.runAction(fireAction!, withKey:"shootKey")
     
@@ -174,8 +175,6 @@ class Player: SKSpriteNode {
         isShooting = false;
         startRun();
         
-        
-
     }
     
     func shoot(){
@@ -189,12 +188,9 @@ class Player: SKSpriteNode {
             let stop:SKAction = SKAction.runBlock(stopShoot);
             let seq:SKAction = SKAction.sequence([wait, stop])
             self.runAction(seq);
-            
         
         }
       
-        
-        
     }
     
     func startJump(){

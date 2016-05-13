@@ -29,27 +29,27 @@ class Object: SKNode {
         self.spreadHeight = spreadHeight
         createObject();
     }
-    
+
     func createObject() {
         
         if (type == LevelType.water) {
             imageName = "Platform"
         } else {
             
-            let rand = arc4random_uniform(7)
+            let rand = arc4random_uniform(5) // no platform atm
             
             if ( rand == 0) {
-                imageName = "Platform"
-            } else if ( rand == 1) {
                 imageName = "Wheel"
-            } else if ( rand == 2) {
+            } else if ( rand == 1) {
                 imageName = "Barrel"
-            } else if ( rand == 3) {
+            } else if ( rand == 2) {
                 imageName = "Cactus"
-            } else if ( rand == 4) {
+            } else if ( rand == 3) {
                 imageName = "Rock"
-            } else if ( rand == 5) {
-                imageName = "Money"
+            } else if ( rand == 4) {
+                imageName = "Money";
+            } else if (rand == 5){
+                imageName = "Platform"
             } else if ( rand == 6) {
                 // increase liklihood of another platform
                 imageName = "Platform"
@@ -85,7 +85,7 @@ class Object: SKNode {
             }
             
             let randX = arc4random_uniform(UInt32(spreadWidth))
-            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 2),  self.position.y)
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 2) + 100,  self.position.y)
             
             
         } else if ( imageName == "Wheel") {
@@ -104,6 +104,8 @@ class Object: SKNode {
             
         } else if ( imageName == "Money") {
             
+            objectSprite.xScale = 1.5;
+            objectSprite.yScale = 1.5;
             objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 2)
             objectSprite.physicsBody!.categoryBitMask = BodyType.moneyObject.rawValue
             
@@ -114,9 +116,15 @@ class Object: SKNode {
             objectSprite.physicsBody!.allowsRotation = true
             
             let randX = arc4random_uniform(UInt32(spreadWidth))
-            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  self.position.y)
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  0)
             
         } else {
+            
+            if(imageName == "Barrel"){
+                objectSprite.xScale = 1.5;
+                objectSprite.yScale = 1.5;
+                
+            }
             
             objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 1.8)
             objectSprite.physicsBody!.categoryBitMask = BodyType.deathObject.rawValue
