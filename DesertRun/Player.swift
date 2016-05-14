@@ -143,8 +143,6 @@ class Player: SKSpriteNode {
     
     func startRun(){
         
-        print("start run")
-        
         isGliding = false
         isRunning = true
         isJumping = false
@@ -171,7 +169,6 @@ class Player: SKSpriteNode {
     
     func stopShoot(){
         
-        print("ended shoot")
         isShooting = false;
         startRun();
         
@@ -180,8 +177,6 @@ class Player: SKSpriteNode {
     func shoot(){
         
         if(isShooting == false && isJumping == false && isRunning == true){
-            
-            print("start SHOOT!")
             
             startShoot();
             let wait:SKAction = SKAction.waitForDuration(0.3);
