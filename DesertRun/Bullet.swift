@@ -23,8 +23,8 @@ class Bullet: SKNode {
         
         self.addChild(bulletSprite)
         
-        bulletSprite.xScale = 0.5;
-        bulletSprite.yScale = 0.5;
+        bulletSprite.xScale = 0.4;
+        bulletSprite.yScale = 0.4;
         bulletSprite.physicsBody = SKPhysicsBody(circleOfRadius: bulletSprite.size.width / 2)
         bulletSprite.physicsBody!.categoryBitMask = BodyType.bullet.rawValue
         bulletSprite.physicsBody!.contactTestBitMask = BodyType.wheelObject.rawValue | BodyType.deathObject.rawValue

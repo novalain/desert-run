@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let worldNode:SKNode = SKNode()
     let thePlayer:Player = Player(imageNamed: "bro_walk0001") // fix
-    var playerBullet = Bullet(pos: CGPointMake(5000, 5000)); // ugly, not spawn on screen until shot
+    var playerBullet:Bullet?; // ugly, not spawn on screen until shot
 
     let loopingBG:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
     let loopingBG2:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
@@ -78,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         thePlayer.zPosition = 101
         
         populateLevelUnits()
-        worldNode.addChild(playerBullet);
+        
         
         addChild(loopingBG)
         addChild(loopingBG2)
@@ -130,13 +130,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func tap(){
         
-        //if(playerBullet == nil){
-            
-        playerBullet.position.x = thePlayer.position.x + 50;
-        playerBullet.position.y = thePlayer.position.y;
-        thePlayer.shoot();
-        
-        //}
+        if(playerBullet == nil){
+            playerBullet = Bullet(pos: CGPointMake(thePlayer.position.x + 50, thePlayer.position.y));
+            thePlayer.shoot();
+            worldNode.addChild(playerBullet!);
+        }
         
     }
 
@@ -227,6 +225,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             thePlayer.update()
         }
         
+        
+
+        
+        if(playerBullet != nil){
+            if(playerBullet!.position.x > (levelUnitWidth + thePlayer.position.x - 150)){
+                playerBullet!.removeFromParent();
+                playerBullet = nil;
+            } else {
+                playerBullet!.update();
+            }
+        }
+        
+        
+        
+        
+        
+        
         //if(playerBullet != nil){
         
             /*if(!intersectsNode(playerBullet)){
@@ -237,7 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 playerBullet = nil;
             
             } else {*/
-            playerBullet.update();
+        
             //}
             
         //}
