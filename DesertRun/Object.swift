@@ -85,7 +85,7 @@ class Object: SKNode {
             }
             
             let randX = arc4random_uniform(UInt32(spreadWidth))
-            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 2) + 100,  self.position.y)
+            self.position = CGPointMake( 0,  self.position.y)
             
             
         } else if ( imageName == "Wheel") {
@@ -121,8 +121,8 @@ class Object: SKNode {
         } else {
             
             if(imageName == "Barrel"){
-                objectSprite.xScale = 1.5;
-                objectSprite.yScale = 1.5;
+                objectSprite.xScale = 1.75;
+                objectSprite.yScale = 1.75;
                 
             }
             

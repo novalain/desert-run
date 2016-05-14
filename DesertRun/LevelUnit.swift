@@ -21,8 +21,6 @@ class LevelUnit:SKNode {
     var direction:CGFloat = 1 //will be saved as either 1 or -1
     var numberOfObjectsInLevel:UInt32 = 0
     var offscreenCounter:Int = 0 //anytime an object goes offscreen we add to this, for resetting speed purposes
-    var topSpeedgrass:UInt32 = 5
-    var topSpeedWater:UInt32 = 2
     var maxObjectsInLevelUnit:UInt32 = 2
     
     required init(coder aDecoder: NSCoder) {

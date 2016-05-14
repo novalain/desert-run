@@ -238,25 +238,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
-        
-        
-        
-        
-        //if(playerBullet != nil){
-        
-            /*if(!intersectsNode(playerBullet)){
-                
-                
-                print("Destroy");
-                playerBullet.removeFromParent();
-                playerBullet = nil;
-            
-            } else {*/
-        
-            //}
-            
-        //}
-        
         self.centerOnNode(thePlayer)
         
     }
@@ -272,6 +253,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Handle all the collision
     func didBeginContact(contact: SKPhysicsContact) {
+        
+        // bullet and deathObject
+        
+        if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue){
+            
+            print("bulletCOLLIDED A ")
+            contact.bodyB.node?.parent!.removeFromParent();
+        } else if (contact.bodyB.categoryBitMask == BodyType.bullet.rawValue){
+            print("bulletCOLLIDED B")
+            contact.bodyA.node?.parent!.removeFromParent();
+        }
         
         
         /// deathObject and player
@@ -292,7 +284,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     
-        /// wheelObject and player
+        /// wheelObject and player, instant death
         if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.wheelObject.rawValue ) {
             killPlayer()
         } else if (contact.bodyA.categoryBitMask == BodyType.wheelObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
@@ -318,16 +310,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // make sure if wheel hits death object the wheel is destroyed
         if (contact.bodyA.categoryBitMask == BodyType.wheelObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
-            
             contact.bodyB.node?.parent!.removeFromParent()
- 
         } else if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.wheelObject.rawValue ) {
-            
             contact.bodyA.node?.parent!.removeFromParent()
-            
         }
-        
-        
         
         // collect Money
         if (contact.bodyA.categoryBitMask == BodyType.moneyObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
@@ -340,16 +326,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // insert code to tally up variable for collecting money
         }
 
-        
         // switch body to non dynamic
-        
-        
         if (contact.bodyA.categoryBitMask == BodyType.ground.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
             contact.bodyB.node?.physicsBody!.dynamic = false
         } else if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.ground.rawValue ) {
             contact.bodyA.node?.physicsBody!.dynamic = false
         }
-        
         
         // if the player hits the ground....
         if (contact.bodyA.categoryBitMask == BodyType.ground.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
