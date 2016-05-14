@@ -17,6 +17,7 @@ class Object: SKNode {
     var type:LevelType!;
     var spreadWidth:CGFloat = 0
     var spreadHeight:CGFloat = 0
+    var enemyRunAction:SKAction?;
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,7 +28,24 @@ class Object: SKNode {
         self.type = type
         self.spreadWidth = spreadWidth
         self.spreadHeight = spreadHeight
+        setUpEnemyRun();
         createObject();
+    }
+    
+    func setUpEnemyRun() {
+        
+        let atlas = SKTextureAtlas (named: "Enemy")
+        var atlasTextures:[SKTexture] = []
+        
+        for i in 0 ..< 7{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro4_run000%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/15, resize: true , restore:false )
+        enemyRunAction =  SKAction.repeatActionForever(atlasAnimation)
+        
     }
 
     func createObject() {
@@ -39,21 +57,22 @@ class Object: SKNode {
             let rand = arc4random_uniform(5) // no platform atm
             
             if ( rand == 0) {
-                imageName = "Wheel"
-            } else if ( rand == 1) {
                 imageName = "Barrel"
-            } else if ( rand == 2) {
+            } else if ( rand == 1) {
                 imageName = "Cactus"
-            } else if ( rand == 3) {
+            } else if ( rand == 2) {
                 imageName = "Rock"
+            } else if ( rand == 3) {
+                imageName = "Money"
             } else if ( rand == 4) {
-                imageName = "Money";
-            } else if (rand == 5){
+                imageName = "bro4_run0001";
+            }
+            /*else if (rand == 5){
                 imageName = "Platform"
             } else if ( rand == 6) {
                 // increase liklihood of another platform
                 imageName = "Platform"
-            }
+            }*/
         }
         
         objectSprite = SKSpriteNode(imageNamed:imageName)
@@ -88,20 +107,6 @@ class Object: SKNode {
             self.position = CGPointMake( 0,  self.position.y)
             
             
-        } else if ( imageName == "Wheel") {
-            
-            objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 2)
-            objectSprite.physicsBody!.categoryBitMask = BodyType.wheelObject.rawValue
-            objectSprite.physicsBody!.contactTestBitMask = BodyType.wheelObject.rawValue | BodyType.deathObject.rawValue | BodyType.water.rawValue
-            objectSprite.physicsBody!.friction = 1
-            objectSprite.physicsBody!.dynamic = true
-            objectSprite.physicsBody!.affectedByGravity = true
-            objectSprite.physicsBody!.restitution = 0.5
-            objectSprite.physicsBody!.allowsRotation = true
-            
-            let randX = arc4random_uniform(UInt32(spreadWidth))
-            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  self.position.y)
-            
         } else if ( imageName == "Money") {
             
             objectSprite.xScale = 1.5;
@@ -118,17 +123,38 @@ class Object: SKNode {
             let randX = arc4random_uniform(UInt32(spreadWidth))
             self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  0)
             
+        } else if ( imageName == "bro4_run0001"){
+            
+            objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 2.6)
+            objectSprite.physicsBody!.categoryBitMask = BodyType.enemy.rawValue
+            objectSprite.physicsBody!.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.water.rawValue | BodyType.enemy.rawValue
+            objectSprite.xScale = objectSprite.xScale * -1;
+            
+            objectSprite.physicsBody!.friction = 0;
+            objectSprite.physicsBody!.dynamic = true
+            objectSprite.physicsBody!.affectedByGravity = true
+            objectSprite.physicsBody!.restitution = 0.0
+            objectSprite.physicsBody!.allowsRotation = false
+            
+            let randX = arc4random_uniform(UInt32(spreadWidth))
+            self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  0)
+            objectSprite.runAction(enemyRunAction!);
+            
         } else {
             
             if(imageName == "Barrel"){
                 objectSprite.xScale = 1.75;
                 objectSprite.yScale = 1.75;
                 
+            } else if (imageName == "Cactus"){
+                objectSprite.xScale = 0.85;
+                objectSprite.yScale = 0.85;
+            
             }
             
             objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 1.8)
             objectSprite.physicsBody!.categoryBitMask = BodyType.deathObject.rawValue
-            objectSprite.physicsBody!.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.ground.rawValue | BodyType.wheelObject.rawValue | BodyType.water.rawValue
+            objectSprite.physicsBody!.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.ground.rawValue | BodyType.water.rawValue
             
             objectSprite.physicsBody!.friction = 1
             objectSprite.physicsBody!.dynamic = true

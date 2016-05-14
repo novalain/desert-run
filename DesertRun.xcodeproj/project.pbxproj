@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E7DC6CC1CE4E18400321548 /* Player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E7DC6CB1CE4E18400321548 /* Player.atlas */; };
 		1E7DC6CE1CE6185000321548 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7DC6CD1CE6185000321548 /* Bullet.swift */; };
+		1E7DC6D21CE7640800321548 /* Enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E7DC6D11CE7640800321548 /* Enemy.atlas */; };
 		DA0688331B347C1300A99513 /* Ogre.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA0688321B347C1300A99513 /* Ogre.atlas */; };
 		DA364DDD1B16212B0027E334 /* LevelUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA364DDC1B16212B0027E334 /* LevelUnit.swift */; };
 		DAE21F901B0D27780066F756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F8F1B0D27780066F756 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		1E7DC6CB1CE4E18400321548 /* Player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Player.atlas; sourceTree = "<group>"; };
 		1E7DC6CD1CE6185000321548 /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		1E7DC6D11CE7640800321548 /* Enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Enemy.atlas; sourceTree = "<group>"; };
 		DA0688321B347C1300A99513 /* Ogre.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ogre.atlas; sourceTree = "<group>"; };
 		DA364DDC1B16212B0027E334 /* LevelUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUnit.swift; sourceTree = "<group>"; };
 		DAE21F8A1B0D27780066F756 /* DesertRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesertRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				DAE21FB51B0D27CE0066F756 /* Object.swift */,
 				DAE21F951B0D27780066F756 /* GameViewController.swift */,
 				DAE21F971B0D27780066F756 /* Main.storyboard */,
+				1E7DC6D11CE7640800321548 /* Enemy.atlas */,
 				DA0688321B347C1300A99513 /* Ogre.atlas */,
 				DAE21F9A1B0D27780066F756 /* Images.xcassets */,
 				1E7DC6CB1CE4E18400321548 /* Player.atlas */,
@@ -220,6 +223,7 @@
 				1E7DC6CC1CE4E18400321548 /* Player.atlas in Resources */,
 				DA0688331B347C1300A99513 /* Ogre.atlas in Resources */,
 				DAE21F9E1B0D27780066F756 /* LaunchScreen.xib in Resources */,
+				1E7DC6D21CE7640800321548 /* Enemy.atlas in Resources */,
 				DAE21F9B1B0D27780066F756 /* Images.xcassets in Resources */,
 				DAE21F921B0D27780066F756 /* GameScene.sks in Resources */,
 				DAE21F991B0D27780066F756 /* Main.storyboard in Resources */,

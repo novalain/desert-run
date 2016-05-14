@@ -22,8 +22,8 @@ class Player: SKSpriteNode {
     var isAttacking:Bool = false
     var isShooting:Bool = false;
     var jumpAmount:CGFloat = 0
-    var maxJump:CGFloat = 100
-    var minSpeed:CGFloat = 10
+    var maxJump:CGFloat = 25
+    var minSpeed:CGFloat = 6
     var glideTime:NSTimeInterval = 2
     var slideTime:NSTimeInterval = 0.5
     
@@ -36,13 +36,13 @@ class Player: SKSpriteNode {
         let imageTexture = SKTexture(imageNamed: imageNamed)
         super.init(texture: imageTexture, color:SKColor.clearColor(), size: imageTexture.size() )
         
-        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 2, center:CGPointMake(0, 0))
+        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 3, center:CGPointMake(0, -18))
         body.dynamic = true
         body.affectedByGravity = true
         body.allowsRotation = false
         body.restitution = 0.0
         body.categoryBitMask = BodyType.player.rawValue
-        body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.wheelObject.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
+        body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.enemy.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
         body.collisionBitMask = BodyType.platformObject.rawValue | BodyType.ground.rawValue
         self.physicsBody = body
         

@@ -18,6 +18,7 @@ enum BodyType:UInt32 {
     case water = 32
     case moneyObject = 64
     case bullet = 128
+    case enemy = 256
     
 }
 
@@ -66,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelUnitHeight = screenHeight
         
         physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx:-0.5, dy:-9.8)
+        physicsWorld.gravity = CGVector(dx:-0.3, dy:-9.8)
         
         // Move origin to center
         self.anchorPoint = CGPointMake(0.5, 0.5)
@@ -256,13 +257,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // bullet and deathObject
         
-        if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue){
-            
-            print("bulletCOLLIDED A ")
+        if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue || contact.bodyB.categoryBitMask == BodyType.bullet.rawValue){
             contact.bodyB.node?.parent!.removeFromParent();
-        } else if (contact.bodyB.categoryBitMask == BodyType.bullet.rawValue){
-            print("bulletCOLLIDED B")
             contact.bodyA.node?.parent!.removeFromParent();
+            playerBullet = nil;
         }
         
         
@@ -284,11 +282,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     
-        /// wheelObject and player, instant death
-        if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.wheelObject.rawValue ) {
+        /// enemyObject and player, instant death
+        if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue ) {
             killPlayer()
-        } else if (contact.bodyA.categoryBitMask == BodyType.wheelObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
+        } else if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
             killPlayer()
+        }
+        
+        // make sure two enemy objects aren't too close to each other
+        if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue ) {
+            contact.bodyA.node?.parent!.removeFromParent()
         }
         
         /// water and player
@@ -298,20 +301,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             killPlayer()
         }
         
+        // water and enemy
+        if(contact.bodyA.categoryBitMask == BodyType.enemy.rawValue && contact.bodyB.categoryBitMask == BodyType.water.rawValue){
+            contact.bodyA.node?.parent!.removeFromParent();
+        } else if (contact.bodyB.categoryBitMask == BodyType.water.rawValue && contact.bodyA.categoryBitMask == BodyType.enemy.rawValue){
+            contact.bodyA.node?.parent!.removeFromParent();
+        }
+        
         // make sure two death objects aren't too close to each other
         if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
             contact.bodyA.node?.parent!.removeFromParent()
         }
         
-        // make sure two wheelObjects aren't on each other
-        if (contact.bodyA.categoryBitMask == BodyType.wheelObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.wheelObject.rawValue ) {
-            contact.bodyA.node?.parent!.removeFromParent()
-        }
-        
-        // make sure if wheel hits death object the wheel is destroyed
-        if (contact.bodyA.categoryBitMask == BodyType.wheelObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
+        // make sure if enemy hits death object the wheel is destroyed
+        if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
             contact.bodyB.node?.parent!.removeFromParent()
-        } else if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.wheelObject.rawValue ) {
+        } else if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue ) {
             contact.bodyA.node?.parent!.removeFromParent()
         }
         
