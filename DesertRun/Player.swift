@@ -42,7 +42,7 @@ class Player: SKSpriteNode {
         body.allowsRotation = false
         body.restitution = 0.0
         body.categoryBitMask = BodyType.player.rawValue
-        body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.enemy.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
+        body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
         body.collisionBitMask = BodyType.platformObject.rawValue | BodyType.ground.rawValue
         self.physicsBody = body
         

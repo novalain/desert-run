@@ -52,6 +52,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isDead:Bool = false
     var onPlatform:Bool = false
     var currentPlatform:SKSpriteNode?
+    var enemyDieAction:SKAction?;
+    var enemyShot:Bool = false;
     
     let playerStartingPos:CGPoint = CGPointMake(50, 0)
 
@@ -67,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelUnitHeight = screenHeight
         
         physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx:-0.3, dy:-9.8)
+        physicsWorld.gravity = CGVector(dx:-0.3, dy:-7.8)
         
         // Move origin to center
         self.anchorPoint = CGPointMake(0.5, 0.5)
@@ -80,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         populateLevelUnits()
         
-        
+        setUpEnemyDieAnimation();
         addChild(loopingBG)
         addChild(loopingBG2)
         
@@ -93,6 +95,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         startLoopingBackground()
        
+    }
+    
+    func setUpEnemyDieAnimation(){
+        
+        let atlas = SKTextureAtlas (named: "Enemy")
+        var atlasTextures:[SKTexture] = []
+        
+        for i in 0 ..< 9{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro4_defeated000%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        for i in 9 ..< 22{
+            let texture:SKTexture = atlas.textureNamed( String(format: "bro4_defeated00%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true , restore:false )
+        enemyDieAction =  SKAction.repeatAction(atlasAnimation, count:1)
     }
     
     func setUpSwipeHandlers(){
@@ -255,12 +276,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Handle all the collision
     func didBeginContact(contact: SKPhysicsContact) {
         
-        // bullet and deathObject
-        
+        // bullet and whatever
         if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue || contact.bodyB.categoryBitMask == BodyType.bullet.rawValue){
-            contact.bodyB.node?.parent!.removeFromParent();
-            contact.bodyA.node?.parent!.removeFromParent();
+            
+            if(contact.bodyB.categoryBitMask == BodyType.enemy.rawValue){
+            
+                contact.bodyA.node?.parent!.removeFromParent();
+                
+                /*contact.bodyB.node!.physicsBody!.dynamic = false;
+                contact.bodyB.node!.physicsBody!.collisionBitMask = 0;
+                contact.bodyB.node!.physicsBody!.contactTestBitMask = 0;*/
+                
+                enemyShot = true;
+                
+                //contact.bodyB.node?.physicsBody = nil;
+                
+                contact.bodyB.node!.runAction(enemyDieAction!, completion: {
+                    contact.bodyB.node?.parent!.removeFromParent();
+                    self.enemyShot = false;
+                });
+                
+            
+            } else if(contact.bodyA.categoryBitMask == BodyType.enemy.rawValue){
+
+                contact.bodyB.node?.parent!.removeFromParent();
+                contact.bodyA.node!.runAction(enemyDieAction!);
+                //contact.bodyA.node!.physicsBody!.dynamic = false;
+                //contact.bodyA.node!.physicsBody!.collisionBitMask = 0;
+                //contact.bodyB.node!.physicsBody!.contactTestBitMask = 0;
+                //contact.bodyA.node?.physicsBody = nil;
+                enemyShot = true;
+                
+                contact.bodyA.node!.runAction(enemyDieAction!, completion: {
+                    contact.bodyA.node?.parent!.removeFromParent();
+                    self.enemyShot = false;
+                });
+                
+            } else {
+                // Just remove if not enemy
+                contact.bodyB.node?.parent!.removeFromParent();
+                contact.bodyA.node?.parent!.removeFromParent();
+            }
+            
             playerBullet = nil;
+            
         }
         
         
@@ -283,9 +342,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     
         /// enemyObject and player, instant death
-        if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue ) {
+        if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue && !enemyShot) {
             killPlayer()
-        } else if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
+        } else if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue && !enemyShot) {
             killPlayer()
         }
         

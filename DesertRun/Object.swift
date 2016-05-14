@@ -19,6 +19,7 @@ class Object: SKNode {
     var spreadHeight:CGFloat = 0
     var enemyRunAction:SKAction?;
     
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,6 +49,13 @@ class Object: SKNode {
         
     }
 
+    /*func playEnemyDie(){
+        
+        self.objectSprite.removeActionForKey("enemyRun")
+        self.objectSprite.runAction(enemyDieAction! , withKey:"runKey")
+    
+    }*/
+    
     func createObject() {
         
         if (type == LevelType.water) {
@@ -103,7 +111,7 @@ class Object: SKNode {
                 }
             }
             
-            let randX = arc4random_uniform(UInt32(spreadWidth))
+            //let randX = arc4random_uniform(UInt32(spreadWidth))
             self.position = CGPointMake( 0,  self.position.y)
             
             
@@ -127,7 +135,8 @@ class Object: SKNode {
             
             objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 2.6)
             objectSprite.physicsBody!.categoryBitMask = BodyType.enemy.rawValue
-            objectSprite.physicsBody!.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.water.rawValue | BodyType.enemy.rawValue
+            objectSprite.physicsBody!.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.water.rawValue | BodyType.enemy.rawValue | BodyType.player.rawValue
+            objectSprite.physicsBody!.collisionBitMask = BodyType.deathObject.rawValue | BodyType.water.rawValue | BodyType.ground.rawValue | BodyType.moneyObject.rawValue
             objectSprite.xScale = objectSprite.xScale * -1;
             
             objectSprite.physicsBody!.friction = 0;
@@ -138,7 +147,7 @@ class Object: SKNode {
             
             let randX = arc4random_uniform(UInt32(spreadWidth))
             self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  0)
-            objectSprite.runAction(enemyRunAction!);
+            objectSprite.runAction(enemyRunAction!, withKey:"enemyRun");
             
         } else {
             
