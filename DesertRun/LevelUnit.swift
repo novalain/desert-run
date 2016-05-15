@@ -83,25 +83,25 @@ class LevelUnit:SKNode {
         if ( isFirst == false ) {
             createObstacle()
         }
-
+        
         
     }
-
+    
     // create obstacles on level unit
     func createObstacle() {
-
+        
         numberOfObjectsInLevel = arc4random_uniform(maxObjectsInLevelUnit) + 1 // shouldn't be zero
         
         for _ in 0 ..< Int(numberOfObjectsInLevel) {
-
+            
             let obstacle:Object = Object(type: type, spreadWidth: width, spreadHeight: height)
             addChild(obstacle)
             
         }
-
+        
         
     }
-
+    
     
 }
 

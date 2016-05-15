@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  EndlessWorlds
+//  DesertRun
 //
-//  Created by Justin Dike on 5/20/15.
-//  Copyright (c) 2015 CartoonSmart. All rights reserved.
+//  Created by Michael Novén on 2016-05-15.
+//  Copyright © 2016 novalain. All rights reserved.
 //
 
 import UIKit

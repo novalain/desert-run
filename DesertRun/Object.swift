@@ -13,11 +13,11 @@ class Object: SKNode {
     
     var objectSprite:SKSpriteNode = SKSpriteNode()
     var imageName:String = ""
-   
+    
     var type:LevelType!;
     var spreadWidth:CGFloat = 0
     var spreadHeight:CGFloat = 0
-    var enemyRunAction:SKAction?;
+    //var enemyRunAction:SKAction?;
     
     
     required init(coder aDecoder: NSCoder) {
@@ -29,7 +29,6 @@ class Object: SKNode {
         self.type = type
         self.spreadWidth = spreadWidth
         self.spreadHeight = spreadHeight
-        setUpEnemyRun();
         createObject();
     }
     
@@ -48,13 +47,13 @@ class Object: SKNode {
         enemyRunAction =  SKAction.repeatActionForever(atlasAnimation)
         
     }
-
-    /*func playEnemyDie(){
-        
-        self.objectSprite.removeActionForKey("enemyRun")
-        self.objectSprite.runAction(enemyDieAction! , withKey:"runKey")
     
-    }*/
+    /*func playEnemyDie(){
+     
+     self.objectSprite.removeActionForKey("enemyRun")
+     self.objectSprite.runAction(enemyDieAction! , withKey:"runKey")
+     
+     }*/
     
     func createObject() {
         
@@ -74,13 +73,14 @@ class Object: SKNode {
                 imageName = "Money"
             } else if ( rand == 4) {
                 imageName = "bro4_run0001";
+                //setUpEnemyRun();
             }
             /*else if (rand == 5){
-                imageName = "Platform"
-            } else if ( rand == 6) {
-                // increase liklihood of another platform
-                imageName = "Platform"
-            }*/
+             imageName = "Platform"
+             } else if ( rand == 6) {
+             // increase liklihood of another platform
+             imageName = "Platform"
+             }*/
         }
         
         objectSprite = SKSpriteNode(imageNamed:imageName)
@@ -93,7 +93,7 @@ class Object: SKNode {
             
             objectSprite.physicsBody = SKPhysicsBody(rectangleOfSize: newSize, center:CGPointMake(0, 50))
             objectSprite.physicsBody!.categoryBitMask = BodyType.platformObject.rawValue
-           
+            
             objectSprite.physicsBody!.friction = 1
             objectSprite.physicsBody!.dynamic = false
             objectSprite.physicsBody!.affectedByGravity = false
@@ -149,6 +149,7 @@ class Object: SKNode {
             self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 3),  0)
             objectSprite.runAction(enemyRunAction!, withKey:"enemyRun");
             
+            
         } else {
             
             if(imageName == "Barrel"){
@@ -157,8 +158,8 @@ class Object: SKNode {
                 
             } else if (imageName == "Cactus"){
                 objectSprite.xScale = 0.85;
-                objectSprite.yScale = 0.85;
-            
+                objectSprite.yScale = 0.85;6
+                
             }
             
             objectSprite.physicsBody = SKPhysicsBody(circleOfRadius: objectSprite.size.width / 1.8)
@@ -175,12 +176,12 @@ class Object: SKNode {
             self.position = CGPointMake( CGFloat(randX) - (spreadWidth / 2),  self.position.y)
             
         }
-
+        
         self.zPosition = 102
         self.name = "obstacle"
         
     }
-
+    
     
 }
 

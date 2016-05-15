@@ -45,6 +45,7 @@ class Player: SKSpriteNode {
         body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
         body.collisionBitMask = BodyType.platformObject.rawValue | BodyType.ground.rawValue
         self.physicsBody = body
+        self.zPosition = 5000;
         
         // Set up actions for animations
         setUpRun()
@@ -54,7 +55,7 @@ class Player: SKSpriteNode {
         
         // Start by running
         startRun()
-    
+        
     }
     
     func update() {
@@ -84,7 +85,7 @@ class Player: SKSpriteNode {
         
         let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true , restore:false )
         runAction =  SKAction.repeatActionForever(atlasAnimation)
-
+        
     }
     
     func setUpFire() {
@@ -107,7 +108,7 @@ class Player: SKSpriteNode {
         
     }
     
-
+    
     func setUpJump() {
         
         let atlas = SKTextureAtlas (named: "Player")
@@ -127,7 +128,7 @@ class Player: SKSpriteNode {
     func setUpGlide() {
         
         let atlas = SKTextureAtlas (named: "Ogre")
-    
+        
         //create another array this time with SKTexture as the type (textures being the .png images)
         var atlasTextures:[SKTexture] = []
         
@@ -161,10 +162,10 @@ class Player: SKSpriteNode {
         isRunning = false;
         isJumping = false;
         isShooting = true;
-    
+        
         self.removeActionForKey("runKey")
         self.runAction(fireAction!, withKey:"shootKey")
-    
+        
     }
     
     func stopShoot(){
@@ -183,9 +184,9 @@ class Player: SKSpriteNode {
             let stop:SKAction = SKAction.runBlock(stopShoot);
             let seq:SKAction = SKAction.sequence([wait, stop])
             self.runAction(seq);
-        
+            
         }
-      
+        
     }
     
     func startJump(){
@@ -198,7 +199,7 @@ class Player: SKSpriteNode {
         isShooting = false;
         isJumping = true
         
-
+        
     }
     
     // TODO: seems to be slowing down speed when jumping
@@ -217,7 +218,7 @@ class Player: SKSpriteNode {
             let seq2:SKAction = SKAction.sequence([`repeat`, stop])
             
             self.runAction(seq2)
-
+            
         }
         
     }
@@ -240,7 +241,7 @@ class Player: SKSpriteNode {
         }
         
     }
-
+    
     func startGlide(){
         
         isJumping = false
@@ -289,20 +290,20 @@ class Player: SKSpriteNode {
             let seq:SKAction = SKAction.sequence([wait, block])
             
             self.runAction(seq)
-        
+            
         }
         
     }
     
     
     func stopSlide() {
-    
+        
         isAttacking = false
         startRun()
         
     }
     
-   
+    
     
     
 }

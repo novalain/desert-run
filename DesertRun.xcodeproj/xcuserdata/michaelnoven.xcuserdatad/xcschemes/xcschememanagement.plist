@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EndlessWorlds.xcscheme</key>
+		<key>DesertRun.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>DAE21F891B0D27780066F756</key>
+		<key>1E1EBB4E1CE88D6500B9FC7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DAE21FA21B0D27780066F756</key>
+		<key>1E1EBB661CE88D6500B9FC7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E1EBB711CE88D6500B9FC7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

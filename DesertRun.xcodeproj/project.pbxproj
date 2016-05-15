@@ -7,64 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E7DC6CC1CE4E18400321548 /* Player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E7DC6CB1CE4E18400321548 /* Player.atlas */; };
-		1E7DC6CE1CE6185000321548 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7DC6CD1CE6185000321548 /* Bullet.swift */; };
-		1E7DC6D21CE7640800321548 /* Enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E7DC6D11CE7640800321548 /* Enemy.atlas */; };
-		DA0688331B347C1300A99513 /* Ogre.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DA0688321B347C1300A99513 /* Ogre.atlas */; };
-		DA364DDD1B16212B0027E334 /* LevelUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA364DDC1B16212B0027E334 /* LevelUnit.swift */; };
-		DAE21F901B0D27780066F756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F8F1B0D27780066F756 /* AppDelegate.swift */; };
-		DAE21F921B0D27780066F756 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F911B0D27780066F756 /* GameScene.sks */; };
-		DAE21F941B0D27780066F756 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F931B0D27780066F756 /* GameScene.swift */; };
-		DAE21F961B0D27780066F756 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21F951B0D27780066F756 /* GameViewController.swift */; };
-		DAE21F991B0D27780066F756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F971B0D27780066F756 /* Main.storyboard */; };
-		DAE21F9B1B0D27780066F756 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F9A1B0D27780066F756 /* Images.xcassets */; };
-		DAE21F9E1B0D27780066F756 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */; };
-		DAE21FAA1B0D27780066F756 /* DesertRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21FA91B0D27780066F756 /* DesertRunTests.swift */; };
-		DAE21FB41B0D27C00066F756 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21FB31B0D27C00066F756 /* Player.swift */; };
-		DAE21FB61B0D27CE0066F756 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE21FB51B0D27CE0066F756 /* Object.swift */; };
+		1E1EBB531CE88D6500B9FC7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB521CE88D6500B9FC7E /* AppDelegate.swift */; };
+		1E1EBB551CE88D6500B9FC7E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB541CE88D6500B9FC7E /* GameScene.sks */; };
+		1E1EBB571CE88D6500B9FC7E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB561CE88D6500B9FC7E /* GameScene.swift */; };
+		1E1EBB591CE88D6500B9FC7E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB581CE88D6500B9FC7E /* GameViewController.swift */; };
+		1E1EBB5C1CE88D6500B9FC7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB5A1CE88D6500B9FC7E /* Main.storyboard */; };
+		1E1EBB5E1CE88D6500B9FC7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB5D1CE88D6500B9FC7E /* Assets.xcassets */; };
+		1E1EBB611CE88D6500B9FC7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB5F1CE88D6500B9FC7E /* LaunchScreen.storyboard */; };
+		1E1EBB6C1CE88D6500B9FC7E /* DesertRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB6B1CE88D6500B9FC7E /* DesertRunTests.swift */; };
+		1E1EBB771CE88D6500B9FC7E /* DesertRunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB761CE88D6500B9FC7E /* DesertRunUITests.swift */; };
+		1E1EBB851CE88E1C00B9FC7E /* Ogre.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB841CE88E1C00B9FC7E /* Ogre.atlas */; };
+		1E1EBB871CE88E2600B9FC7E /* Player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB861CE88E2600B9FC7E /* Player.atlas */; };
+		1E1EBB891CE88EF600B9FC7E /* Enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB881CE88EF600B9FC7E /* Enemy.atlas */; };
+		1E1EBB8B1CE88F2000B9FC7E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB8A1CE88F2000B9FC7E /* Player.swift */; };
+		1E1EBB901CE88F2F00B9FC7E /* LevelUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB8D1CE88F2F00B9FC7E /* LevelUnit.swift */; };
+		1E1EBB911CE88F2F00B9FC7E /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB8E1CE88F2F00B9FC7E /* Object.swift */; };
+		1E1EBB931CE8929900B9FC7E /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB921CE8929900B9FC7E /* Bullet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DAE21FA41B0D27780066F756 /* PBXContainerItemProxy */ = {
+		1E1EBB681CE88D6500B9FC7E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DAE21F821B0D27780066F756 /* Project object */;
+			containerPortal = 1E1EBB471CE88D6500B9FC7E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DAE21F891B0D27780066F756;
-			remoteInfo = EndlessWorlds;
+			remoteGlobalIDString = 1E1EBB4E1CE88D6500B9FC7E;
+			remoteInfo = DesertRun;
+		};
+		1E1EBB731CE88D6500B9FC7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E1EBB471CE88D6500B9FC7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E1EBB4E1CE88D6500B9FC7E;
+			remoteInfo = DesertRun;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E7DC6CB1CE4E18400321548 /* Player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Player.atlas; sourceTree = "<group>"; };
-		1E7DC6CD1CE6185000321548 /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
-		1E7DC6D11CE7640800321548 /* Enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Enemy.atlas; sourceTree = "<group>"; };
-		DA0688321B347C1300A99513 /* Ogre.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ogre.atlas; sourceTree = "<group>"; };
-		DA364DDC1B16212B0027E334 /* LevelUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUnit.swift; sourceTree = "<group>"; };
-		DAE21F8A1B0D27780066F756 /* DesertRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesertRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAE21F8E1B0D27780066F756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAE21F8F1B0D27780066F756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAE21F911B0D27780066F756 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		DAE21F931B0D27780066F756 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		DAE21F951B0D27780066F756 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		DAE21F981B0D27780066F756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAE21F9A1B0D27780066F756 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DAE21F9D1B0D27780066F756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DAE21FA31B0D27780066F756 /* DesertRun.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesertRun.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAE21FA81B0D27780066F756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAE21FA91B0D27780066F756 /* DesertRunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertRunTests.swift; sourceTree = "<group>"; };
-		DAE21FB31B0D27C00066F756 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		DAE21FB51B0D27CE0066F756 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		1E1EBB4F1CE88D6500B9FC7E /* DesertRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesertRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1EBB521CE88D6500B9FC7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1E1EBB541CE88D6500B9FC7E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		1E1EBB561CE88D6500B9FC7E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		1E1EBB581CE88D6500B9FC7E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1E1EBB5B1CE88D6500B9FC7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1E1EBB5D1CE88D6500B9FC7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E1EBB601CE88D6500B9FC7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1E1EBB621CE88D6500B9FC7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E1EBB671CE88D6500B9FC7E /* DesertRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesertRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1EBB6B1CE88D6500B9FC7E /* DesertRunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertRunTests.swift; sourceTree = "<group>"; };
+		1E1EBB6D1CE88D6500B9FC7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E1EBB721CE88D6500B9FC7E /* DesertRunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesertRunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1EBB761CE88D6500B9FC7E /* DesertRunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertRunUITests.swift; sourceTree = "<group>"; };
+		1E1EBB781CE88D6500B9FC7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E1EBB841CE88E1C00B9FC7E /* Ogre.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ogre.atlas; sourceTree = "<group>"; };
+		1E1EBB861CE88E2600B9FC7E /* Player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Player.atlas; sourceTree = "<group>"; };
+		1E1EBB881CE88EF600B9FC7E /* Enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Enemy.atlas; sourceTree = "<group>"; };
+		1E1EBB8A1CE88F2000B9FC7E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1E1EBB8D1CE88F2F00B9FC7E /* LevelUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUnit.swift; sourceTree = "<group>"; };
+		1E1EBB8E1CE88F2F00B9FC7E /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		1E1EBB921CE8929900B9FC7E /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DAE21F871B0D27780066F756 /* Frameworks */ = {
+		1E1EBB4C1CE88D6500B9FC7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DAE21FA01B0D27780066F756 /* Frameworks */ = {
+		1E1EBB641CE88D6500B9FC7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E1EBB6F1CE88D6500B9FC7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,129 +92,146 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DAE21F811B0D27780066F756 = {
+		1E1EBB461CE88D6500B9FC7E = {
 			isa = PBXGroup;
 			children = (
-				DAE21F8C1B0D27780066F756 /* DesertRun */,
-				DAE21FA61B0D27780066F756 /* DesertRunTests */,
-				DAE21F8B1B0D27780066F756 /* Products */,
+				1E1EBB511CE88D6500B9FC7E /* DesertRun */,
+				1E1EBB6A1CE88D6500B9FC7E /* DesertRunTests */,
+				1E1EBB751CE88D6500B9FC7E /* DesertRunUITests */,
+				1E1EBB501CE88D6500B9FC7E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DAE21F8B1B0D27780066F756 /* Products */ = {
+		1E1EBB501CE88D6500B9FC7E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DAE21F8A1B0D27780066F756 /* DesertRun.app */,
-				DAE21FA31B0D27780066F756 /* DesertRun.xctest */,
+				1E1EBB4F1CE88D6500B9FC7E /* DesertRun.app */,
+				1E1EBB671CE88D6500B9FC7E /* DesertRunTests.xctest */,
+				1E1EBB721CE88D6500B9FC7E /* DesertRunUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DAE21F8C1B0D27780066F756 /* DesertRun */ = {
+		1E1EBB511CE88D6500B9FC7E /* DesertRun */ = {
 			isa = PBXGroup;
 			children = (
-				DAE21F8F1B0D27780066F756 /* AppDelegate.swift */,
-				DAE21F911B0D27780066F756 /* GameScene.sks */,
-				DAE21F931B0D27780066F756 /* GameScene.swift */,
-				DAE21FB31B0D27C00066F756 /* Player.swift */,
-				1E7DC6CD1CE6185000321548 /* Bullet.swift */,
-				DA364DDC1B16212B0027E334 /* LevelUnit.swift */,
-				DAE21FB51B0D27CE0066F756 /* Object.swift */,
-				DAE21F951B0D27780066F756 /* GameViewController.swift */,
-				DAE21F971B0D27780066F756 /* Main.storyboard */,
-				1E7DC6D11CE7640800321548 /* Enemy.atlas */,
-				DA0688321B347C1300A99513 /* Ogre.atlas */,
-				DAE21F9A1B0D27780066F756 /* Images.xcassets */,
-				1E7DC6CB1CE4E18400321548 /* Player.atlas */,
-				DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */,
-				DAE21F8D1B0D27780066F756 /* Supporting Files */,
+				1E1EBB521CE88D6500B9FC7E /* AppDelegate.swift */,
+				1E1EBB541CE88D6500B9FC7E /* GameScene.sks */,
+				1E1EBB561CE88D6500B9FC7E /* GameScene.swift */,
+				1E1EBB921CE8929900B9FC7E /* Bullet.swift */,
+				1E1EBB8D1CE88F2F00B9FC7E /* LevelUnit.swift */,
+				1E1EBB8E1CE88F2F00B9FC7E /* Object.swift */,
+				1E1EBB8A1CE88F2000B9FC7E /* Player.swift */,
+				1E1EBB581CE88D6500B9FC7E /* GameViewController.swift */,
+				1E1EBB5A1CE88D6500B9FC7E /* Main.storyboard */,
+				1E1EBB881CE88EF600B9FC7E /* Enemy.atlas */,
+				1E1EBB841CE88E1C00B9FC7E /* Ogre.atlas */,
+				1E1EBB5D1CE88D6500B9FC7E /* Assets.xcassets */,
+				1E1EBB861CE88E2600B9FC7E /* Player.atlas */,
+				1E1EBB5F1CE88D6500B9FC7E /* LaunchScreen.storyboard */,
+				1E1EBB621CE88D6500B9FC7E /* Info.plist */,
 			);
 			path = DesertRun;
 			sourceTree = "<group>";
 		};
-		DAE21F8D1B0D27780066F756 /* Supporting Files */ = {
+		1E1EBB6A1CE88D6500B9FC7E /* DesertRunTests */ = {
 			isa = PBXGroup;
 			children = (
-				DAE21F8E1B0D27780066F756 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DAE21FA61B0D27780066F756 /* DesertRunTests */ = {
-			isa = PBXGroup;
-			children = (
-				DAE21FA91B0D27780066F756 /* DesertRunTests.swift */,
-				DAE21FA71B0D27780066F756 /* Supporting Files */,
+				1E1EBB6B1CE88D6500B9FC7E /* DesertRunTests.swift */,
+				1E1EBB6D1CE88D6500B9FC7E /* Info.plist */,
 			);
 			path = DesertRunTests;
 			sourceTree = "<group>";
 		};
-		DAE21FA71B0D27780066F756 /* Supporting Files */ = {
+		1E1EBB751CE88D6500B9FC7E /* DesertRunUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DAE21FA81B0D27780066F756 /* Info.plist */,
+				1E1EBB761CE88D6500B9FC7E /* DesertRunUITests.swift */,
+				1E1EBB781CE88D6500B9FC7E /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = DesertRunUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DAE21F891B0D27780066F756 /* DesertRun */ = {
+		1E1EBB4E1CE88D6500B9FC7E /* DesertRun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAE21FAD1B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRun" */;
+			buildConfigurationList = 1E1EBB7B1CE88D6500B9FC7E /* Build configuration list for PBXNativeTarget "DesertRun" */;
 			buildPhases = (
-				DAE21F861B0D27780066F756 /* Sources */,
-				DAE21F871B0D27780066F756 /* Frameworks */,
-				DAE21F881B0D27780066F756 /* Resources */,
+				1E1EBB4B1CE88D6500B9FC7E /* Sources */,
+				1E1EBB4C1CE88D6500B9FC7E /* Frameworks */,
+				1E1EBB4D1CE88D6500B9FC7E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DesertRun;
-			productName = EndlessWorlds;
-			productReference = DAE21F8A1B0D27780066F756 /* DesertRun.app */;
+			productName = DesertRun;
+			productReference = 1E1EBB4F1CE88D6500B9FC7E /* DesertRun.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DAE21FA21B0D27780066F756 /* DesertRunTests */ = {
+		1E1EBB661CE88D6500B9FC7E /* DesertRunTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAE21FB01B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRunTests" */;
+			buildConfigurationList = 1E1EBB7E1CE88D6500B9FC7E /* Build configuration list for PBXNativeTarget "DesertRunTests" */;
 			buildPhases = (
-				DAE21F9F1B0D27780066F756 /* Sources */,
-				DAE21FA01B0D27780066F756 /* Frameworks */,
-				DAE21FA11B0D27780066F756 /* Resources */,
+				1E1EBB631CE88D6500B9FC7E /* Sources */,
+				1E1EBB641CE88D6500B9FC7E /* Frameworks */,
+				1E1EBB651CE88D6500B9FC7E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DAE21FA51B0D27780066F756 /* PBXTargetDependency */,
+				1E1EBB691CE88D6500B9FC7E /* PBXTargetDependency */,
 			);
 			name = DesertRunTests;
-			productName = EndlessWorldsTests;
-			productReference = DAE21FA31B0D27780066F756 /* DesertRun.xctest */;
+			productName = DesertRunTests;
+			productReference = 1E1EBB671CE88D6500B9FC7E /* DesertRunTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1E1EBB711CE88D6500B9FC7E /* DesertRunUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E1EBB811CE88D6500B9FC7E /* Build configuration list for PBXNativeTarget "DesertRunUITests" */;
+			buildPhases = (
+				1E1EBB6E1CE88D6500B9FC7E /* Sources */,
+				1E1EBB6F1CE88D6500B9FC7E /* Frameworks */,
+				1E1EBB701CE88D6500B9FC7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E1EBB741CE88D6500B9FC7E /* PBXTargetDependency */,
+			);
+			name = DesertRunUITests;
+			productName = DesertRunUITests;
+			productReference = 1E1EBB721CE88D6500B9FC7E /* DesertRunUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DAE21F821B0D27780066F756 /* Project object */ = {
+		1E1EBB471CE88D6500B9FC7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = CartoonSmart;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = novalain;
 				TargetAttributes = {
-					DAE21F891B0D27780066F756 = {
-						CreatedOnToolsVersion = 6.3.1;
+					1E1EBB4E1CE88D6500B9FC7E = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
-					DAE21FA21B0D27780066F756 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = DAE21F891B0D27780066F756;
+					1E1EBB661CE88D6500B9FC7E = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 1E1EBB4E1CE88D6500B9FC7E;
+					};
+					1E1EBB711CE88D6500B9FC7E = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 1E1EBB4E1CE88D6500B9FC7E;
 					};
 				};
 			};
-			buildConfigurationList = DAE21F851B0D27780066F756 /* Build configuration list for PBXProject "DesertRun" */;
+			buildConfigurationList = 1E1EBB4A1CE88D6500B9FC7E /* Build configuration list for PBXProject "DesertRun" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -204,33 +239,41 @@
 				en,
 				Base,
 			);
-			mainGroup = DAE21F811B0D27780066F756;
-			productRefGroup = DAE21F8B1B0D27780066F756 /* Products */;
+			mainGroup = 1E1EBB461CE88D6500B9FC7E;
+			productRefGroup = 1E1EBB501CE88D6500B9FC7E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DAE21F891B0D27780066F756 /* DesertRun */,
-				DAE21FA21B0D27780066F756 /* DesertRunTests */,
+				1E1EBB4E1CE88D6500B9FC7E /* DesertRun */,
+				1E1EBB661CE88D6500B9FC7E /* DesertRunTests */,
+				1E1EBB711CE88D6500B9FC7E /* DesertRunUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DAE21F881B0D27780066F756 /* Resources */ = {
+		1E1EBB4D1CE88D6500B9FC7E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E7DC6CC1CE4E18400321548 /* Player.atlas in Resources */,
-				DA0688331B347C1300A99513 /* Ogre.atlas in Resources */,
-				DAE21F9E1B0D27780066F756 /* LaunchScreen.xib in Resources */,
-				1E7DC6D21CE7640800321548 /* Enemy.atlas in Resources */,
-				DAE21F9B1B0D27780066F756 /* Images.xcassets in Resources */,
-				DAE21F921B0D27780066F756 /* GameScene.sks in Resources */,
-				DAE21F991B0D27780066F756 /* Main.storyboard in Resources */,
+				1E1EBB871CE88E2600B9FC7E /* Player.atlas in Resources */,
+				1E1EBB851CE88E1C00B9FC7E /* Ogre.atlas in Resources */,
+				1E1EBB551CE88D6500B9FC7E /* GameScene.sks in Resources */,
+				1E1EBB891CE88EF600B9FC7E /* Enemy.atlas in Resources */,
+				1E1EBB611CE88D6500B9FC7E /* LaunchScreen.storyboard in Resources */,
+				1E1EBB5E1CE88D6500B9FC7E /* Assets.xcassets in Resources */,
+				1E1EBB5C1CE88D6500B9FC7E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DAE21FA11B0D27780066F756 /* Resources */ = {
+		1E1EBB651CE88D6500B9FC7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E1EBB701CE88D6500B9FC7E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,62 +283,76 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DAE21F861B0D27780066F756 /* Sources */ = {
+		1E1EBB4B1CE88D6500B9FC7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA364DDD1B16212B0027E334 /* LevelUnit.swift in Sources */,
-				DAE21FB61B0D27CE0066F756 /* Object.swift in Sources */,
-				DAE21FB41B0D27C00066F756 /* Player.swift in Sources */,
-				1E7DC6CE1CE6185000321548 /* Bullet.swift in Sources */,
-				DAE21F941B0D27780066F756 /* GameScene.swift in Sources */,
-				DAE21F961B0D27780066F756 /* GameViewController.swift in Sources */,
-				DAE21F901B0D27780066F756 /* AppDelegate.swift in Sources */,
+				1E1EBB901CE88F2F00B9FC7E /* LevelUnit.swift in Sources */,
+				1E1EBB8B1CE88F2000B9FC7E /* Player.swift in Sources */,
+				1E1EBB571CE88D6500B9FC7E /* GameScene.swift in Sources */,
+				1E1EBB931CE8929900B9FC7E /* Bullet.swift in Sources */,
+				1E1EBB911CE88F2F00B9FC7E /* Object.swift in Sources */,
+				1E1EBB591CE88D6500B9FC7E /* GameViewController.swift in Sources */,
+				1E1EBB531CE88D6500B9FC7E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DAE21F9F1B0D27780066F756 /* Sources */ = {
+		1E1EBB631CE88D6500B9FC7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE21FAA1B0D27780066F756 /* DesertRunTests.swift in Sources */,
+				1E1EBB6C1CE88D6500B9FC7E /* DesertRunTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E1EBB6E1CE88D6500B9FC7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E1EBB771CE88D6500B9FC7E /* DesertRunUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DAE21FA51B0D27780066F756 /* PBXTargetDependency */ = {
+		1E1EBB691CE88D6500B9FC7E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAE21F891B0D27780066F756 /* DesertRun */;
-			targetProxy = DAE21FA41B0D27780066F756 /* PBXContainerItemProxy */;
+			target = 1E1EBB4E1CE88D6500B9FC7E /* DesertRun */;
+			targetProxy = 1E1EBB681CE88D6500B9FC7E /* PBXContainerItemProxy */;
+		};
+		1E1EBB741CE88D6500B9FC7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E1EBB4E1CE88D6500B9FC7E /* DesertRun */;
+			targetProxy = 1E1EBB731CE88D6500B9FC7E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DAE21F971B0D27780066F756 /* Main.storyboard */ = {
+		1E1EBB5A1CE88D6500B9FC7E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DAE21F981B0D27780066F756 /* Base */,
+				1E1EBB5B1CE88D6500B9FC7E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		DAE21F9C1B0D27780066F756 /* LaunchScreen.xib */ = {
+		1E1EBB5F1CE88D6500B9FC7E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DAE21F9D1B0D27780066F756 /* Base */,
+				1E1EBB601CE88D6500B9FC7E /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DAE21FAB1B0D27780066F756 /* Debug */ = {
+		1E1EBB791CE88D6500B9FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -322,14 +379,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -338,10 +394,11 @@
 			};
 			name = Debug;
 		};
-		DAE21FAC1B0D27780066F756 /* Release */ = {
+		1E1EBB7A1CE88D6500B9FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -368,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,95 +433,118 @@
 			};
 			name = Release;
 		};
-		DAE21FAE1B0D27780066F756 /* Debug */ = {
+		1E1EBB7C1CE88D6500B9FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/DesertRun/Info.plist";
+				INFOPLIST_FILE = DesertRun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = DesertRun;
+				PRODUCT_BUNDLE_IDENTIFIER = novalain.DesertRun;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		DAE21FAF1B0D27780066F756 /* Release */ = {
+		1E1EBB7D1CE88D6500B9FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "$(SRCROOT)/DesertRun/Info.plist";
+				INFOPLIST_FILE = DesertRun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = DesertRun;
+				PRODUCT_BUNDLE_IDENTIFIER = novalain.DesertRun;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		DAE21FB11B0D27780066F756 /* Debug */ = {
+		1E1EBB7F1CE88D6500B9FC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = EndlessWorldsTests/Info.plist;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = DesertRunTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = DesertRun;
+				PRODUCT_BUNDLE_IDENTIFIER = novalain.DesertRunTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesertRun.app/DesertRun";
 			};
 			name = Debug;
 		};
-		DAE21FB21B0D27780066F756 /* Release */ = {
+		1E1EBB801CE88D6500B9FC7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = EndlessWorldsTests/Info.plist;
+				INFOPLIST_FILE = DesertRunTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cartoonsmart.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = DesertRun;
+				PRODUCT_BUNDLE_IDENTIFIER = novalain.DesertRunTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesertRun.app/DesertRun";
+			};
+			name = Release;
+		};
+		1E1EBB821CE88D6500B9FC7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = DesertRunUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = novalain.DesertRunUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DesertRun;
+			};
+			name = Debug;
+		};
+		1E1EBB831CE88D6500B9FC7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DesertRunUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = novalain.DesertRunUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DesertRun;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DAE21F851B0D27780066F756 /* Build configuration list for PBXProject "DesertRun" */ = {
+		1E1EBB4A1CE88D6500B9FC7E /* Build configuration list for PBXProject "DesertRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DAE21FAB1B0D27780066F756 /* Debug */,
-				DAE21FAC1B0D27780066F756 /* Release */,
+				1E1EBB791CE88D6500B9FC7E /* Debug */,
+				1E1EBB7A1CE88D6500B9FC7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAE21FAD1B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRun" */ = {
+		1E1EBB7B1CE88D6500B9FC7E /* Build configuration list for PBXNativeTarget "DesertRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DAE21FAE1B0D27780066F756 /* Debug */,
-				DAE21FAF1B0D27780066F756 /* Release */,
+				1E1EBB7C1CE88D6500B9FC7E /* Debug */,
+				1E1EBB7D1CE88D6500B9FC7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAE21FB01B0D27780066F756 /* Build configuration list for PBXNativeTarget "DesertRunTests" */ = {
+		1E1EBB7E1CE88D6500B9FC7E /* Build configuration list for PBXNativeTarget "DesertRunTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DAE21FB11B0D27780066F756 /* Debug */,
-				DAE21FB21B0D27780066F756 /* Release */,
+				1E1EBB7F1CE88D6500B9FC7E /* Debug */,
+				1E1EBB801CE88D6500B9FC7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E1EBB811CE88D6500B9FC7E /* Build configuration list for PBXNativeTarget "DesertRunUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E1EBB821CE88D6500B9FC7E /* Debug */,
+				1E1EBB831CE88D6500B9FC7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DAE21F821B0D27780066F756 /* Project object */;
+	rootObject = 1E1EBB471CE88D6500B9FC7E /* Project object */;
 }
