@@ -84,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelUnitHeight = screenHeight
         
         physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx:-0.3, dy:-7.8)
+        physicsWorld.gravity = CGVector(dx:-0.3, dy:-5.8)
         
         // Move origin to center
         self.anchorPoint = CGPointMake(0.5, 0.5)
@@ -392,7 +392,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue){
                   
                     contact.bodyB.node!.physicsBody!.categoryBitMask = 0;
-                    
                     contact.bodyB.node!.runAction(bulletExplodeAction!, completion:{
                         contact.bodyB.node!.removeFromParent();
                         //self.deathObjectShot = false;

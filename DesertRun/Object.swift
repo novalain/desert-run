@@ -138,7 +138,7 @@ class Object: SKNode {
             objectSprite.physicsBody!.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.water.rawValue | BodyType.enemy.rawValue | BodyType.player.rawValue
             objectSprite.physicsBody!.collisionBitMask = BodyType.deathObject.rawValue | BodyType.water.rawValue | BodyType.ground.rawValue | BodyType.moneyObject.rawValue
             objectSprite.xScale = objectSprite.xScale * -1;
-            objectSprite.zPosition = 100;
+            objectSprite.zPosition = -100;
             
             objectSprite.physicsBody!.friction = 0;
             objectSprite.physicsBody!.dynamic = true
@@ -159,7 +159,7 @@ class Object: SKNode {
                 
             } else if (imageName == "Cactus"){
                 objectSprite.xScale = 0.85;
-                objectSprite.yScale = 0.85;6
+                objectSprite.yScale = 0.85;
                 
             }
             
