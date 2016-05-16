@@ -38,8 +38,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let tapRec = UITapGestureRecognizer();
     
     let worldNode:SKNode = SKNode()
-    let thePlayer:Player = Player(imageNamed: "bro_walk0001") // fix
-    var playerBullet:Bullet?; // ugly, not spawn on screen until shot
+    let thePlayer:Player = Player(imageNamed: "bro3_walk0001") // fix
+    var playerBullet:Bullet?;
     
     let loopingBG:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
     let loopingBG2:SKSpriteNode = SKSpriteNode(imageNamed: "Looping_BG")
@@ -55,18 +55,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var onPlatform:Bool = false
     var currentPlatform:SKSpriteNode?
     var enemyDieAction:SKAction?;
-    var bulletExploreAction:SKAction?;
+    var bulletExplodeAction:SKAction?;
     var enemyShot:Bool = false;
+    var deathObjectShot:Bool = false;
     
     let playerStartingPos:CGPoint = CGPointMake(50, 0)
+    var scoreLabel:SKLabelNode!;
+    
+    var score:Int = 0 {
+        didSet{
+            scoreLabel.text = "Score \(score)";
+        }
+    }
     
     override func didMoveToView(view: SKView) {
         
-        setUpSwipeHandlers();
+        
+        
         
         self.backgroundColor = SKColor.whiteColor()
         screenWidth = self.view!.bounds.width
         screenHeight = self.view!.bounds.height
+        
+        setUpSwipeHandlers();
+        setUpText();
         
         levelUnitWidth = screenWidth
         levelUnitHeight = screenHeight
@@ -103,7 +115,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-   
+    func setUpText() {
+    
+        scoreLabel = SKLabelNode(fontNamed :"AmericanTypeWriter")
+        scoreLabel.text = "Score: 0";
+        scoreLabel.fontColor = SKColor.blackColor();
+        scoreLabel.horizontalAlignmentMode = .Right;
+        
+        //scoreLabel.position = worldNode.convertPoint(CGPointMake(-100, 50), fromNode: self)
+        scoreLabel.position = CGPointMake(-screenWidth/2 + 150, screenHeight/2 - 50);
+        
+        print(scoreLabel.position);
+        
+        //let nodeLocation:CGPoint = self.convertPoint(node.position, fromNode: self.worldNode)
+        self.addChild(scoreLabel);
+    
+    }
+    
+    func setUpBulletExplodeAnimation(){
+        
+        let atlas = SKTextureAtlas (named: "Explode")
+        var atlasTextures:[SKTexture] = []
+        
+        for i in 0 ..< 9{
+            let texture:SKTexture = atlas.textureNamed( String(format: "ring_blast000%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        for i in 9 ..< 13{
+            let texture:SKTexture = atlas.textureNamed( String(format: "ring_blast00%i", i+1))
+            atlasTextures.insert(texture, atIndex:i)
+        }
+        
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true , restore:false )
+        bulletExplodeAction =  SKAction.repeatAction(atlasAnimation, count:1)
+    }
     
     func setUpEnemyRunAnimation(){
     
@@ -176,9 +222,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func tap(){
         
-        if(playerBullet == nil){
+        if(playerBullet == nil && thePlayer.shoot() == true){
             playerBullet = Bullet(pos: CGPointMake(thePlayer.position.x + 50, thePlayer.position.y));
-            thePlayer.shoot();
             worldNode.addChild(playerBullet!);
         }
         
@@ -207,6 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         levelUnitCounter = 0
+        score = 0;
         populateLevelUnits()
         
     }
@@ -256,6 +302,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // call before render each frame
     override func update(currentTime: CFTimeInterval) {
         
+  
         // declare where next
         let nextTierPos:CGFloat = (levelUnitCounter * levelUnitWidth) - (CGFloat(initialUnits) * levelUnitWidth)
         
@@ -300,8 +347,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // bullet and whatever
         if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue || contact.bodyB.categoryBitMask == BodyType.bullet.rawValue){
             
-            if(contact.bodyB.categoryBitMask == BodyType.enemy.rawValue){
+            if(contact.bodyB.categoryBitMask == BodyType.enemy.rawValue && !enemyShot){
                 
+                // Remove bullet
                 contact.bodyA.node?.parent!.removeFromParent();
                 
                 /*contact.bodyB.node!.physicsBody!.dynamic = false;
@@ -318,8 +366,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 });
                 
                 
-            } else if(contact.bodyA.categoryBitMask == BodyType.enemy.rawValue){
+            } else if(contact.bodyA.categoryBitMask == BodyType.enemy.rawValue && !enemyShot){
                 
+                // Remove bullet
                 contact.bodyB.node?.parent!.removeFromParent();
                 contact.bodyA.node!.runAction(enemyDieAction!);
                 //contact.bodyA.node!.physicsBody!.dynamic = false;
@@ -333,20 +382,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     self.enemyShot = false;
                 });
                 
-            } else {
+            } else if(!deathObjectShot){
                 // Just remove if not enemy
-                contact.bodyB.node?.parent!.removeFromParent();
-                contact.bodyA.node?.parent!.removeFromParent();
+                deathObjectShot = true;
+                
+                if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue){
+                    
+                    contact.bodyB.node!.runAction(bulletExplodeAction!, completion:{
+                        contact.bodyB.node!.removeFromParent();
+                        self.deathObjectShot = false;
+                    })
+                    
+                    contact.bodyA.node?.parent!.removeFromParent();
+                    playerBullet = nil;
+                    
+                } else{
+                    
+                    contact.bodyA.node!.runAction(bulletExplodeAction!, completion:{
+                        contact.bodyA.node!.removeFromParent();
+                        self.deathObjectShot = false;
+                    })
+                    
+                    contact.bodyB.node?.parent!.removeFromParent();
+                    playerBullet = nil;
+
+                }
+                
             }
-            
-            playerBullet = nil;
-            
+
         }
         
         
         /// deathObject and player
         if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
             
+            if(deathObjectShot){
+                return;
+            }
+    
             if (thePlayer.isAttacking == false) {
                 killPlayer()
             } else {
@@ -354,6 +427,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         } else if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
+            
+            if(deathObjectShot){
+                return;
+            }
             
             if (thePlayer.isAttacking == false) {
                 killPlayer()
@@ -409,6 +486,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             contact.bodyB.node?.parent!.removeFromParent()
             // insert code to tally up variable for collecting money
+            score+=1;
         }
         
         // switch body to non dynamic

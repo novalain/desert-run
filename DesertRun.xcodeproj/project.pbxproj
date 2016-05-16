@@ -23,6 +23,7 @@
 		1E1EBB901CE88F2F00B9FC7E /* LevelUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB8D1CE88F2F00B9FC7E /* LevelUnit.swift */; };
 		1E1EBB911CE88F2F00B9FC7E /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB8E1CE88F2F00B9FC7E /* Object.swift */; };
 		1E1EBB931CE8929900B9FC7E /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EBB921CE8929900B9FC7E /* Bullet.swift */; };
+		1E1EBB951CE8D20B00B9FC7E /* Explode.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1E1EBB941CE8D20B00B9FC7E /* Explode.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		1E1EBB8D1CE88F2F00B9FC7E /* LevelUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUnit.swift; sourceTree = "<group>"; };
 		1E1EBB8E1CE88F2F00B9FC7E /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		1E1EBB921CE8929900B9FC7E /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		1E1EBB941CE8D20B00B9FC7E /* Explode.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Explode.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				1E1EBB8A1CE88F2000B9FC7E /* Player.swift */,
 				1E1EBB581CE88D6500B9FC7E /* GameViewController.swift */,
 				1E1EBB5A1CE88D6500B9FC7E /* Main.storyboard */,
+				1E1EBB941CE8D20B00B9FC7E /* Explode.atlas */,
 				1E1EBB881CE88EF600B9FC7E /* Enemy.atlas */,
 				1E1EBB841CE88E1C00B9FC7E /* Ogre.atlas */,
 				1E1EBB5D1CE88D6500B9FC7E /* Assets.xcassets */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E1EBB871CE88E2600B9FC7E /* Player.atlas in Resources */,
+				1E1EBB951CE8D20B00B9FC7E /* Explode.atlas in Resources */,
 				1E1EBB851CE88E1C00B9FC7E /* Ogre.atlas in Resources */,
 				1E1EBB551CE88D6500B9FC7E /* GameScene.sks in Resources */,
 				1E1EBB891CE88EF600B9FC7E /* Enemy.atlas in Resources */,

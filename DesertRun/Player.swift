@@ -36,7 +36,8 @@ class Player: SKSpriteNode {
         let imageTexture = SKTexture(imageNamed: imageNamed)
         super.init(texture: imageTexture, color:SKColor.clearColor(), size: imageTexture.size() )
         
-        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 3, center:CGPointMake(0, -18))
+        //let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 2.6, center:CGPointMake(0, -18))
+        let body:SKPhysicsBody = SKPhysicsBody(circleOfRadius: imageTexture.size().width / 2.6);
         body.dynamic = true
         body.affectedByGravity = true
         body.allowsRotation = false
@@ -44,8 +45,8 @@ class Player: SKSpriteNode {
         body.categoryBitMask = BodyType.player.rawValue
         body.contactTestBitMask = BodyType.deathObject.rawValue | BodyType.platformObject.rawValue | BodyType.ground.rawValue  | BodyType.water.rawValue | BodyType.moneyObject.rawValue
         body.collisionBitMask = BodyType.platformObject.rawValue | BodyType.ground.rawValue
-        self.physicsBody = body
-        self.zPosition = 5000;
+        self.physicsBody = body;
+        self.zPosition = 1000;
         
         // Set up actions for animations
         setUpRun()
@@ -175,9 +176,10 @@ class Player: SKSpriteNode {
         
     }
     
-    func shoot(){
+    func shoot() -> Bool{
+    
         
-        if(isShooting == false && isJumping == false && isRunning == true){
+        if(!isShooting && !isJumping && isRunning == true && !isGliding){
             
             startShoot();
             let wait:SKAction = SKAction.waitForDuration(0.3);
@@ -185,7 +187,11 @@ class Player: SKSpriteNode {
             let seq:SKAction = SKAction.sequence([wait, stop])
             self.runAction(seq);
             
+            return true;
+       
         }
+        
+        return false;
         
     }
     
