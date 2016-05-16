@@ -84,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         levelUnitHeight = screenHeight
         
         physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx:-0.3, dy:-5.8)
+        physicsWorld.gravity = CGVector(dx:-0.3, dy:-8.8)
         
         // Move origin to center
         self.anchorPoint = CGPointMake(0.5, 0.5)
@@ -229,7 +229,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func swipedRight(){ thePlayer.glide() }
+    func swipedRight(){
+        
+        //thePlayer.glide() 
+    
+    }
     
     func swipedDown(){
         
