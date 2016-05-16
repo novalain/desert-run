@@ -347,7 +347,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // bullet and whatever
         if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue || contact.bodyB.categoryBitMask == BodyType.bullet.rawValue){
             
-            if(contact.bodyB.categoryBitMask == BodyType.enemy.rawValue && !enemyShot){
+            if(contact.bodyB.categoryBitMask == BodyType.enemy.rawValue ){
                 
                 // Remove bullet
                 contact.bodyA.node?.parent!.removeFromParent();
@@ -356,9 +356,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                  contact.bodyB.node!.physicsBody!.collisionBitMask = 0;
                  contact.bodyB.node!.physicsBody!.contactTestBitMask = 0;*/
                 
-                enemyShot = true;
+                //enemyShot = true;
                 
                 //contact.bodyB.node?.physicsBody = nil;
+                contact.bodyB.node!.physicsBody!.categoryBitMask = 0;
+            
                 
                 contact.bodyB.node!.runAction(enemyDieAction!, completion: {
                     contact.bodyB.node?.parent!.removeFromParent();
@@ -366,31 +368,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 });
                 
                 
-            } else if(contact.bodyA.categoryBitMask == BodyType.enemy.rawValue && !enemyShot){
+            } else if(contact.bodyA.categoryBitMask == BodyType.enemy.rawValue ){
                 
                 // Remove bullet
                 contact.bodyB.node?.parent!.removeFromParent();
-                contact.bodyA.node!.runAction(enemyDieAction!);
+                //contact.bodyA.node!.runAction(enemyDieAction!);
                 //contact.bodyA.node!.physicsBody!.dynamic = false;
                 //contact.bodyA.node!.physicsBody!.collisionBitMask = 0;
                 //contact.bodyB.node!.physicsBody!.contactTestBitMask = 0;
                 //contact.bodyA.node?.physicsBody = nil;
-                enemyShot = true;
+                //enemyShot = true;
+                contact.bodyA.node!.physicsBody!.categoryBitMask = 0;
                 
                 contact.bodyA.node!.runAction(enemyDieAction!, completion: {
                     contact.bodyA.node?.parent!.removeFromParent();
-                    self.enemyShot = false;
+                    //self.enemyShot = false;
                 });
                 
-            } else if(!deathObjectShot){
+            } else {
                 // Just remove if not enemy
-                deathObjectShot = true;
+                //deathObjectShot = true;
                 
                 if(contact.bodyA.categoryBitMask == BodyType.bullet.rawValue){
+                  
+                    contact.bodyB.node!.physicsBody!.categoryBitMask = 0;
                     
                     contact.bodyB.node!.runAction(bulletExplodeAction!, completion:{
                         contact.bodyB.node!.removeFromParent();
-                        self.deathObjectShot = false;
+                        //self.deathObjectShot = false;
                     })
                     
                     contact.bodyA.node?.parent!.removeFromParent();
@@ -398,9 +403,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 } else{
                     
+                    contact.bodyA.node!.physicsBody!.categoryBitMask = 0;
+                    
                     contact.bodyA.node!.runAction(bulletExplodeAction!, completion:{
                         contact.bodyA.node!.removeFromParent();
-                        self.deathObjectShot = false;
+                        //self.deathObjectShot = false;
                     })
                     
                     contact.bodyB.node?.parent!.removeFromParent();
@@ -416,10 +423,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /// deathObject and player
         if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.deathObject.rawValue ) {
             
-            if(deathObjectShot){
-                return;
-            }
-    
             if (thePlayer.isAttacking == false) {
                 killPlayer()
             } else {
@@ -427,10 +430,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         } else if (contact.bodyA.categoryBitMask == BodyType.deathObject.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue ) {
-            
-            if(deathObjectShot){
-                return;
-            }
             
             if (thePlayer.isAttacking == false) {
                 killPlayer()
@@ -440,9 +439,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         /// enemyObject and player, instant death
-        if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue && !enemyShot) {
+        if (contact.bodyA.categoryBitMask == BodyType.player.rawValue  && contact.bodyB.categoryBitMask == BodyType.enemy.rawValue) {
             killPlayer()
-        } else if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue && !enemyShot) {
+        } else if (contact.bodyA.categoryBitMask == BodyType.enemy.rawValue  && contact.bodyB.categoryBitMask == BodyType.player.rawValue) {
             killPlayer()
         }
         
