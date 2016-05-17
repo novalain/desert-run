@@ -49,7 +49,7 @@ class LevelUnit:SKNode {
             imageName = "Wild_West_Background2"
         } else if (diceRoll == 4) {
             if (isFirst == false) {
-                imageName = "Wild_West_Background3"
+                imageName = "toxic_bg2"
                 type = LevelType.water
             } else {
                 imageName = "Wild_West_Background2"

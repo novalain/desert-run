@@ -220,11 +220,10 @@ class Player: SKSpriteNode {
         
         if ( isJumping == false && isGliding == false) {
             
-        
             print("yo")
             startJump()
            /* jumpAmount = maxJump
-            
+        
             let callAgain:SKAction = SKAction.runBlock(taperJump)
             let wait:SKAction = SKAction.waitForDuration(1/60)
             let seq:SKAction = SKAction.sequence([wait, callAgain])
@@ -261,9 +260,7 @@ class Player: SKSpriteNode {
         jumpAmount = 0
         
         if (isGliding == false) {
-            
             startRun()
-            
         }
         
     }
@@ -271,7 +268,7 @@ class Player: SKSpriteNode {
     func startGlide(){
         
         print("startglide");
-        
+
         isJumping = false
         isRunning = false
         isGliding = true

@@ -341,7 +341,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // convert to this camera
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: worldNode)
-        worldNode.position = CGPoint(x: worldNode.position.x - cameraPositionInScene.x - 180 , y:0 )
+        worldNode.position = CGPoint(x: worldNode.position.x - cameraPositionInScene.x - screenWidth/2 + 100 , y:0 )
         
     }
     
