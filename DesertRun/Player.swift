@@ -141,7 +141,6 @@ class Player: SKSpriteNode {
     
     func startRun(){
         
-        print("startrun")
         isGliding = false
         isRunning = true
         isJumping = false
@@ -157,7 +156,6 @@ class Player: SKSpriteNode {
     
     func startShoot(){
         
-        print("startShoot");
         isGliding = false;
         isRunning = false;
         isJumping = false;
@@ -169,7 +167,7 @@ class Player: SKSpriteNode {
     }
     
     func stopShoot(){
-        print("stopshot");
+        
         isShooting = false;
         startRun();
         
@@ -177,7 +175,6 @@ class Player: SKSpriteNode {
     
     func shoot() -> Bool{
     
-        print("shot");
         if(!isShooting && !isGliding){
             
             startShoot();
@@ -196,7 +193,6 @@ class Player: SKSpriteNode {
     
     func startJump(){
         
-        print("startjump");
         self.removeActionForKey("runKey")
         self.runAction(jumpAction!, withKey:"jumpKey" )
         
@@ -213,7 +209,6 @@ class Player: SKSpriteNode {
         
         if ( isJumping == false && isGliding == false) {
             
-            print("yo")
             startJump()
            /* jumpAmount = maxJump
         
@@ -247,8 +242,6 @@ class Player: SKSpriteNode {
     
     func stopJump() {
         
-        print("stopjump")
-        
         isJumping = false
         jumpAmount = 0
         
@@ -259,8 +252,6 @@ class Player: SKSpriteNode {
     }
     
     func startGlide(){
-        
-        print("startglide");
 
         isJumping = false
         isRunning = false
@@ -274,8 +265,6 @@ class Player: SKSpriteNode {
     
     
     func glide() {
-        
-        print("glide")
         
         if (isGliding == false && isJumping == true) {
             startGlide()
@@ -292,7 +281,7 @@ class Player: SKSpriteNode {
     
     
     func stopGlide() {
-        print("stopglide");
+        
         self.physicsBody?.dynamic = true
         self.startRun()
         
@@ -301,8 +290,6 @@ class Player: SKSpriteNode {
     
     func slide() {
   
-        print("slide")
-        
         if (isRunning == true && isAttacking == false) {
             
             startGlide()
@@ -320,7 +307,6 @@ class Player: SKSpriteNode {
     
     func stopSlide() {
         
-        print("stopslide")
         isAttacking = false
         startRun()
         
