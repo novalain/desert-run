@@ -1,10 +1,3 @@
-//
-//  GameScene.swift
-//  EndlessWorlds
-//
-//  Created by Justin Dike on 5/20/15.
-//  Copyright (c) 2015 CartoonSmart. All rights reserved.
-//
 
 import SpriteKit
 
@@ -69,9 +62,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMoveToView(view: SKView) {
-        
-        
-        
         
         self.backgroundColor = SKColor.whiteColor()
         screenWidth = self.view!.bounds.width

@@ -1,10 +1,3 @@
-//
-//  GameViewController.swift
-//  EndlessWorlds
-//
-//  Created by Justin Dike on 5/20/15.
-//  Copyright (c) 2015 CartoonSmart. All rights reserved.
-//
 
 import UIKit
 import SpriteKit
@@ -35,7 +28,7 @@ class GameViewController: UIViewController {
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
-            //skView.showsPhysics = true
+            skView.showsPhysics = false
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             

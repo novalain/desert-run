@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  DesertRun
-//
-//  Created by Michael Novén on 2016-05-15.
-//  Copyright © 2016 novalain. All rights reserved.
-//
 
 import UIKit
 

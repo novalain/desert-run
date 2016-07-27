@@ -1,10 +1,3 @@
-//
-//  Player.swift
-//  JoyStickControls
-//
-//  Created by Justin Dike on 5/4/15.
-//  Copyright (c) 2015 CartoonSmart. All rights reserved.
-//
 
 import Foundation
 import SpriteKit
