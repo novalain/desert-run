@@ -3,7 +3,6 @@ import Foundation
 import SpriteKit
 
 class LevelUnit:SKNode {
-    
     var imageName:String = ""
     var backgroundSprite:SKSpriteNode = SKSpriteNode()
     var width:CGFloat = 0
@@ -20,13 +19,11 @@ class LevelUnit:SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     init (width:CGFloat, height:CGFloat, xPos:CGFloat, yPos:CGFloat, isFirst:Bool) {
-        
         super.init()
         
         zPosition = -1;
-        position = CGPointMake(xPos, yPos);
+        position = CGPoint(x: xPos, y: yPos);
         self.width = width;
         self.height = height;
         
@@ -49,17 +46,17 @@ class LevelUnit:SKNode {
             }
         }
         
-        let theSize:CGSize = CGSizeMake(width, height)
+        let theSize:CGSize = CGSize(width: width, height: height)
         let tex:SKTexture = SKTexture(imageNamed: imageName)
-        backgroundSprite = SKSpriteNode(texture: tex, color: SKColor.clearColor(), size: theSize)
+        backgroundSprite = SKSpriteNode(texture: tex, color: SKColor.clear, size: theSize)
         
         self.addChild(backgroundSprite)
         self.name = "levelUnit"
         //self.position = CGPointMake(backgroundSprite.size.width / 2, 0)
         
-        backgroundSprite.physicsBody = SKPhysicsBody(rectangleOfSize: backgroundSprite.size, center:CGPointMake(0, -backgroundSprite.size.height * 0.88))
+        backgroundSprite.physicsBody = SKPhysicsBody(rectangleOf: backgroundSprite.size, center:CGPoint(x: 0, y: -backgroundSprite.size.height * 0.88))
         
-        backgroundSprite.physicsBody!.dynamic = false
+        backgroundSprite.physicsBody!.isDynamic = false
         backgroundSprite.physicsBody!.restitution = 0
         
         if (type == LevelType.water) {
@@ -76,26 +73,18 @@ class LevelUnit:SKNode {
         if ( isFirst == false ) {
             createObstacle()
         }
-        
-        
     }
     
     // create obstacles on level unit
     func createObstacle() {
-        
         numberOfObjectsInLevel = arc4random_uniform(maxObjectsInLevelUnit) + 1 // shouldn't be zero
         
         for _ in 0 ..< Int(numberOfObjectsInLevel) {
             
             let obstacle:Object = Object(type: type, spreadWidth: width, spreadHeight: height)
             addChild(obstacle)
-            
         }
-        
-        
     }
-    
-    
 }
 
 
